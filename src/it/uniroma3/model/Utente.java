@@ -25,7 +25,7 @@ public class Utente {
 	
 	@OneToMany(mappedBy="brano")
 	private List<Preferenza> preferenze;
-
+	
 	public Utente() {
 		this.preferenze = new LinkedList<Preferenza>();
 	}

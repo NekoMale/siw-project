@@ -13,25 +13,18 @@ import it.uniroma3.controller.action.*;
 @WebServlet("/controller/*")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public Controller() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		return; 
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String nextPage = null;
-		String actionName="it.uniroma3.controller.action."+request.getPathInfo().substring(1);
+		String actionName = "it.uniroma3.controller.action."+request.getPathInfo().substring(1);
 		Action action;
 		
 		try{
 			action = (Action)Class.forName(actionName).newInstance();
 			nextPage = action.perform(request);
 		}catch(Exception e){
+			//request.setAttribute("err", e);
 			nextPage="/index.jsp";
 		}
 		
