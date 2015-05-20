@@ -9,12 +9,12 @@
 </head>
 <body>
 	<h1>Inserisci i tuoi dati</h1>
-	<form action="<c:url value="/Controller/Register" />" method="post">
-	<div>Username: <input type="text" name="username" value="${param.username}"/>${usernameErr}</div>
-	<div>Email: <input type="email" name="email" value="${param.email}"/>${emailErr}</div>
+	<form action="<c:url value="/controller/Register" />" method="post">
+	<div>Username: <input type="text" name="username" value="${user.username}"/>${usernameErr}</div>
+	<div>Email: <input type="email" name="email" value="${user.email}"/>${emailErr}</div>
 	<div>Conferma email: <input type="email" name=""/>${emailErr}</div>
-	<div>Password: <input type="password" name="password" value="${param.password}"/>${passwdErr}</div>
-	<div>Conferma password: <input type="password" name=""/>${passwdErr}</div>
+	<div>Password: <input type="password" name="password" value="${user.password}"/>${passwordErr}</div>
+	<div>Conferma password: <input type="password" name=""/>${passwordErr}</div>
 	<input type="submit" value="registrati"/>
 	</form>
 </body>

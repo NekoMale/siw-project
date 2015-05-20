@@ -27,18 +27,14 @@ public class Utente {
 	private List<Preferenza> preferenze;
 
 	public Utente() {
-		super();
 		this.preferenze = new LinkedList<Preferenza>();
 	}
 
-	public Utente(Long id, String username, String password, String email,
-			boolean isAdmin) {
-		super();
-		this.id = id;
+	public Utente(String username, String password, String email) {
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		this.isAdmin = isAdmin;
+		this.isAdmin = false;
 		this.preferenze = new LinkedList<Preferenza>();
 	}
 
@@ -90,7 +86,7 @@ public class Utente {
 		this.preferenze = preferenze;
 	}
 
-	@Override
+	/*@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -149,7 +145,7 @@ public class Utente {
 	public String toString() {
 		return "Utente [id=" + id + ", username=" + username + ", password="
 				+ password + ", email=" + email + ", isAdmin=" + isAdmin + "]";
-	}
+	}*/
 	
 	
 }

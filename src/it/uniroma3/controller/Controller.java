@@ -10,7 +10,7 @@ import javax.servlet.http.*;
 
 import it.uniroma3.controller.action.*;
 
-@WebServlet("/Controller/*")
+@WebServlet("/controller/*")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -20,17 +20,17 @@ public class Controller extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		return; 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nextPage=null;
+		String nextPage = null;
 		String actionName="it.uniroma3.controller.action."+request.getPathInfo().substring(1);
 		Action action;
 		
 		try{
 			action = (Action)Class.forName(actionName).newInstance();
-			nextPage=action.perform(request);
+			nextPage = action.perform(request);
 		}catch(Exception e){
 			nextPage="/index.jsp";
 		}
