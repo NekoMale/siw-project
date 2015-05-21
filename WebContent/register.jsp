@@ -9,13 +9,15 @@
 </head>
 <body>
 	<h1>Inserisci i tuoi dati</h1>
+	
 	<form action="<c:url value="/controller/Register" />" method="post">
-	<div>Username: <input type="text" name="username" value="${user.username}"/>${usernameErr}</div>
-	<div>Email: <input type="email" name="email" value="${user.email}"/>${emailErr}</div>
-	<div>Conferma email: <input type="email" name=""/>${emailErr}</div>
-	<div>Password: <input type="password" name="password" value="${user.password}"/>${passwordErr}</div>
-	<div>Conferma password: <input type="password" name=""/>${passwordErr}</div>
-	<input type="submit" value="registrati"/>
-	</form>
+	<div>Username: <input type="text" name="username" value="${user.username}"/> <font color="red">${usernameErr}</font></div>
+	<div>Email: <input type="email" name="email" value="${user.email}"/> <font color="red">${emailErr}</font></div>
+	<div>Conferma email: <input type="email" name="confemail"/> <font color="red">${confEmailErr}</font></div>
+	<div>Password: <input type="password" name="password" value="${user.password}"/> <font color="red">${passwordErr}</font></div>
+	<div>Conferma password: <input type="password" name="confpassword"/> <font color="red">${confPasswordErr}</font></div>
+	<div><input type="submit" value="registrati"/></div>
+	</form>	
+	
 </body>
 </html>

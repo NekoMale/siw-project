@@ -11,6 +11,6 @@
 <h1>Benvenuto</h1>
 <a href="login.jsp">accedi</a><br>
 <a href="register.jsp">registrati</a>
-<!-- ${err} -->
+<%-- ${err} --%>
 </body>
 </html>
