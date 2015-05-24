@@ -25,4 +25,16 @@ public class UserFacade {
 		emf.close();
 		return user;
 	}
+	
+	public Utente findUser(String username) {
+		Utente user;
+		try {
+			user = (Utente) em.createQuery("SELECT u FROM Utente u WHERE u.username LIKE :username").setParameter("username", username)
+					.getSingleResult();
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return user;
+	}
 }

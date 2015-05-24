@@ -9,9 +9,10 @@
 </head>
 <body>
 <h1>Inserisci i tuoi dati</h1>
-	<form action="<c:url value="/Controller/Login" />" method="post">
-	<div>Username: <input type="text" name="username" value="${param.username}"/></div>
-	<div>Password: <input type="password" name="password" value="${param.password}"/></div>
+	<form action="<c:url value="/controller/Login" />" method="post">
+	${combinationErr}
+	<div>Username: <input type="text" name="username" value="${user.username}"/> ${usernameErr}</div>
+	<div>Password: <input type="password" name="password" value="${user.password}"/> ${passwordErr}</div>
 	<input type="submit" value="accedi"/>
 	</form>
 </body>

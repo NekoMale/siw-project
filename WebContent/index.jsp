@@ -8,9 +8,9 @@
 <title>Lyrics - Home</title>
 </head>
 <body>
-<h1>Benvenuto</h1>
+<h1>Benvenuto ${user.username}</h1>
 <a href="login.jsp">accedi</a><br>
 <a href="register.jsp">registrati</a>
-<%-- ${err} --%>
+${err}
 </body>
 </html>

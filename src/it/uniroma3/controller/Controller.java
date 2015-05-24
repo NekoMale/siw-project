@@ -24,7 +24,7 @@ public class Controller extends HttpServlet {
 			action = (Action)Class.forName(actionName).newInstance();
 			nextPage = action.perform(request);
 		}catch(Exception e){
-			//request.setAttribute("err", e);
+			request.setAttribute("err", e);
 			nextPage="/index.jsp";
 		}
 		
