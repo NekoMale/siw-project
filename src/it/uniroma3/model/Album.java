@@ -11,30 +11,30 @@ public class Album {
 	private Long id;
 	
 	@Column(nullable=false)
-	private String nome;
+	private String title;
 	
 	@Column(nullable=false)
-	private int anno;
+	private int year;
 	
 	@Column(nullable=false)
-	private int numeroTracce;
+	private int numberTracks;
 	
 	@ManyToOne
-	private Autore autore;
+	private Author author;
 	
 	@OneToMany(mappedBy="album")
-	private List<Brano> brani;
+	private List<Track> tracks;
 
 	public Album() {
 		super();
 	}
 
-	public Album(Long id, String nome, int anno, int numeroTracce) {
+	public Album(Long id, String name, int year, int numberTracks) {
 		super();
 		this.id = id;
-		this.nome = nome;
-		this.anno = anno;
-		this.numeroTracce = numeroTracce;
+		this.title = name;
+		this.year = year;
+		this.numberTracks = numberTracks;
 	}
 
 	public Long getId() {
@@ -45,51 +45,51 @@ public class Album {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return title;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.title = name;
 	}
 
 	public int getAnno() {
-		return anno;
+		return year;
 	}
 
-	public void setAnno(int anno) {
-		this.anno = anno;
+	public void setAnno(int year) {
+		this.year = year;
 	}
 
-	public int getNumeroTracce() {
-		return numeroTracce;
+	public int getNumberTracks() {
+		return numberTracks;
 	}
 
-	public void setNumeroTracce(int numeroTracce) {
-		this.numeroTracce = numeroTracce;
+	public void setNumberTracks(int numberTracks) {
+		this.numberTracks = numberTracks;
 	}
 
-	public Autore getAutore() {
-		return autore;
+	public Author getAuthor() {
+		return author;
 	}
 
-	public void setAutore(Autore autore) {
-		this.autore = autore;
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
-	public List<Brano> getBrani() {
-		return brani;
+	public List<Track> getTracks() {
+		return tracks;
 	}
 
-	public void setBrani(List<Brano> brani) {
-		this.brani = brani;
+	public void setBrani(List<Track> tracks) {
+		this.tracks = tracks;
 	}
 
 	@Override
 	public String toString() {
-		return "Album [id=" + id + ", nome=" + nome + ", anno=" + anno
-				+ ", numeroTracce=" + numeroTracce + ", autore=" + autore
-				+ ", brani=" + brani + "]";
+		return "Album [id=" + id + ", nome=" + title + ", anno=" + year
+				+ ", numeroTracce=" + numberTracks + ", autore=" + author
+				+ ", brani=" + tracks + "]";
 	}
 	
 	

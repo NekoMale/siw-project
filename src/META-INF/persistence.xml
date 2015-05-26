@@ -6,11 +6,11 @@
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<non-jta-data-source>postgresDataSource</non-jta-data-source>
 		<class>it.uniroma3.model.Album</class>
-		<class>it.uniroma3.model.Autore</class>
-		<class>it.uniroma3.model.Brano</class>
-		<class>it.uniroma3.model.Genere</class>
-		<class>it.uniroma3.model.Preferenza</class>
-		<class>it.uniroma3.model.Utente</class>
+		<class>it.uniroma3.model.Author</class>
+		<class>it.uniroma3.model.Favourites</class>
+		<class>it.uniroma3.model.Genre</class>
+		<class>it.uniroma3.model.Track</class>
+		<class>it.uniroma3.model.Users</class>
 		<properties>
 			<property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver" />
 			<property name="openjpa.ConnectionUserName" value="postgres" />

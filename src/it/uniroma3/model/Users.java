@@ -5,7 +5,7 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
-public class Utente {
+public class Users {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,19 +23,19 @@ public class Utente {
 	@Column(nullable=false)
 	private boolean isAdmin;
 	
-	@OneToMany(mappedBy="brano")
-	private List<Preferenza> preferenze;
+	@OneToMany(mappedBy="track")
+	private List<Favourites> favs;
 	
-	public Utente() {
-		this.preferenze = new LinkedList<Preferenza>();
+	public Users() {
+		this.favs = new LinkedList<Favourites>();
 	}
 
-	public Utente(String username, String password, String email) {
+	public Users(String username, String password, String email) {
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.isAdmin = false;
-		this.preferenze = new LinkedList<Preferenza>();
+		this.favs = new LinkedList<Favourites>();
 	}
 
 	public Long getId() {
@@ -70,20 +70,20 @@ public class Utente {
 		this.email = email;
 	}
 
-	public boolean isAdmin() {
+	public boolean getisAdmin() {
 		return isAdmin;
 	}
 
-	public void setAdmin(boolean isAdmin) {
+	public void setisAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 
-	public List<Preferenza> getPreferenze() {
-		return preferenze;
+	public List<Favourites> getFavs() {
+		return favs;
 	}
 
-	public void setPreferenze(List<Preferenza> preferenze) {
-		this.preferenze = preferenze;
+	public void setFavs(List<Favourites> favs) {
+		this.favs = favs;
 	}
 
 	/*@Override

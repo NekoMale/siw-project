@@ -1,5 +1,7 @@
 package it.uniroma3.model;
 
+import java.util.*;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -15,8 +17,8 @@ public class UserFacade {
 		em = emf.createEntityManager();
 	}
 	
-	public Utente register(String username, String email, String password) {
-		Utente user = new Utente(username, password, email);
+	public Users register(String username, String email, String password) {
+		Users user = new Users(username, password, email);
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		em.persist(user);
@@ -26,15 +28,26 @@ public class UserFacade {
 		return user;
 	}
 	
-	public Utente findUser(String username) {
-		Utente user;
+	public Users findUser(String username) {
+		Users user;
 		try {
-			user = (Utente) em.createQuery("SELECT u FROM Utente u WHERE u.username LIKE :username").setParameter("username", username)
+			user = (Users) em.createQuery("SELECT u FROM Users u WHERE u.username LIKE :username").setParameter("username", username)
 					.getSingleResult();
 		}
 		catch(Exception e) {
 			return null;
 		}
 		return user;
+	}
+	
+	public List<Users> retrieveAllUsers() {
+		List<Users> users;
+		try {
+			users = em.createQuery("SELECT u FROM Users u").getResultList();
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return users;
 	}
 }

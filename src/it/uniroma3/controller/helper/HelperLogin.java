@@ -1,7 +1,7 @@
 package it.uniroma3.controller.helper;
 
 import it.uniroma3.model.UserFacade;
-import it.uniroma3.model.Utente;
+import it.uniroma3.model.Users;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,7 +28,7 @@ public class HelperLogin {
 			errors = true;
 		}
 		
-		Utente user = uf.findUser(username);
+		Users user = uf.findUser(username);
 		if(user==null) {
 			request.setAttribute("combinationErr", "Username errata");
 			errors = true;

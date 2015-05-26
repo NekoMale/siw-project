@@ -2,9 +2,10 @@ package it.uniroma3.controller.action;
 
 import it.uniroma3.controller.helper.HelperLogin;
 import it.uniroma3.model.UserFacade;
-import it.uniroma3.model.Utente;
+import it.uniroma3.model.Users;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class Login implements Action {
 
@@ -18,9 +19,11 @@ public class Login implements Action {
 			String password = request.getParameter("password");
 			
 			UserFacade uf = new UserFacade();
-			Utente user = uf.findUser(username);
-			request.setAttribute("user", user);
-			
+			Users user = uf.findUser(username);
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
+			if(user.getisAdmin())
+				return "/admin/index.jsp";
 			return "/index.jsp";
 		}else{
 			return "/login.jsp";

@@ -5,35 +5,35 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-public class Autore {
+public class Author {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	@Column(nullable=false)
-	private String nome;
+	private String name;
 	
 	@Column(nullable=false)
-	private Date dataDebutto;
+	private Date debut;
 	
 	@Column(nullable=false)
 	private String info;
 	
-	@OneToMany(mappedBy="autore")
-	private List<Brano> brani;
+	@OneToMany(mappedBy="author")
+	private List<Track> tracks;
 	
-	@OneToMany(mappedBy="autore")
+	@OneToMany(mappedBy="author")
 	private List<Album> album;
 
-	public Autore() {
+	public Author() {
 		super();
 	}
 
-	public Autore(Long id, String nome, Date dataDebutto, String info) {
+	public Author(Long id, String name, Date debut, String info) {
 		super();
 		this.id = id;
-		this.nome = nome;
-		this.dataDebutto = dataDebutto;
+		this.name = name;
+		this.debut = debut;
 		this.info = info;
 	}
 
@@ -45,20 +45,20 @@ public class Autore {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Date getDataDebutto() {
-		return dataDebutto;
+	public Date getDebut() {
+		return debut;
 	}
 
-	public void setDataDebutto(Date dataDebutto) {
-		this.dataDebutto = dataDebutto;
+	public void setDebut(Date debut) {
+		this.debut = debut;
 	}
 
 	public String getInfo() {
@@ -69,12 +69,12 @@ public class Autore {
 		this.info = info;
 	}
 
-	public List<Brano> getBrani() {
-		return brani;
+	public List<Track> getTracks() {
+		return tracks;
 	}
 
-	public void setBrani(List<Brano> brani) {
-		this.brani = brani;
+	public void setTracks(List<Track> tracks) {
+		this.tracks = tracks;
 	}
 
 	public List<Album> getAlbum() {
@@ -87,8 +87,8 @@ public class Autore {
 
 	@Override
 	public String toString() {
-		return "Autore [id=" + id + ", nome=" + nome + ", dataDebutto="
-				+ dataDebutto + ", info=" + info + ", brani=" + brani
+		return "Autore [id=" + id + ", nome=" + name + ", dataDebutto="
+				+ debut + ", info=" + info + ", brani=" + tracks
 				+ ", album=" + album + "]";
 	}
 	
