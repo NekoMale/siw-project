@@ -23,7 +23,7 @@ public class Users {
 	@Column(nullable=false)
 	private boolean isAdmin;
 	
-	@OneToMany(mappedBy="track")
+	@OneToMany(cascade=CascadeType.REMOVE,mappedBy="track")
 	private List<Favourites> favs;
 	
 	public Users() {

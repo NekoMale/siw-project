@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+${msg}
 <table>
 	<tr>
 		<th>Username</th>
@@ -18,10 +19,15 @@
 			<td><a href="<c:url value="/controller/AdminGetUser?un=${users.username}" />">${users.username}</a></td>
 			<td>${users.email}</td>
 			<td><input type="button" value="gestisci"/></td>
-			<td><form action="<c:url value="/controller/DeleteUser?un=${users.username}" />" method="get">
+			<td><form action="<c:url value="/admin/confdelete.jsp" />" method="get">
+				<input type="hidden" name="id" value="${users.id}"/>
+				<input type="hidden" name="un" value="${users.username}"/>
 				<input type="submit" value="elimina"/>
 				</form></td>
-			<td><input type="button" value="promuovi"/></td>
+			<td><form action="<c:url value="/controller/AdminPromoteUser" />" method="get">
+				<input type="hidden" name="id" value="${users.id}"/>
+				<input type="submit" value="promuovi"/>
+				</form></td>
 		</tr>
 	</c:forEach>
 </table>

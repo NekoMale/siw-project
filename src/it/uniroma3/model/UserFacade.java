@@ -50,4 +50,36 @@ public class UserFacade {
 		}
 		return users;
 	}
+	
+	public boolean promoteUser(Long id) {
+		Users user = em.find(Users.class, id);
+		try {
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+			user.setisAdmin(true);
+			tx.commit();
+			em.close();
+			emf.close();
+		}
+		catch(Exception e) {
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean deleteUser(Long id) {
+		Users user = em.find(Users.class, id);
+		try {
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+			em.remove(user);
+			tx.commit();
+			em.close();
+			emf.close();
+		}
+		catch(Exception e) {
+			return false;
+		}
+		return true;
+	}
 }
