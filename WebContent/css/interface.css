@@ -1,0 +1,18 @@
+.page-title {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.smallest-body {
+	height: 515px;
+}
+
+.footer {
+    margin-top: 50px;
+    height: 150px;
+}
+
+.footer ul {
+    margin-top: 15px;
+    list-style: none;
+}
