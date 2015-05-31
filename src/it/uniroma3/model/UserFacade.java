@@ -40,6 +40,18 @@ public class UserFacade {
 		return user;
 	}
 	
+	public Users findEmail(String email) {
+		Users user;
+		try {
+			user = (Users) em.createQuery("SELECT u FROM Users u WHERE u.email LIKE :email").setParameter("email", email)
+					.getSingleResult();
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return user;
+	}
+	
 	public List<Users> retrieveAllUsers() {
 		List<Users> users;
 		try {
@@ -57,6 +69,23 @@ public class UserFacade {
 			EntityTransaction tx = em.getTransaction();
 			tx.begin();
 			user.setisAdmin(true);
+			tx.commit();
+			em.close();
+			emf.close();
+		}
+		catch(Exception e) {
+			return false;
+		}
+		return true;
+	}
+	
+	public boolean upDataUser(Long id, String username, String email) {
+		Users user = em.find(Users.class, id);
+		try {
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+			user.setUsername(username);
+			user.setEmail(email);
 			tx.commit();
 			em.close();
 			emf.close();

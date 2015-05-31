@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p><b>Vuoi davvero eliminare ${param.un}?</b></p>
+<p><b>Vuoi davvero eliminare ${param.username}?</b></p>
 <form action="<c:url value="/controller/AdminDeleteUser" />" method="get">
 	<input type="hidden" name="id" value="${param.id}"/>
 	<input type="submit" value="elimina"/>
