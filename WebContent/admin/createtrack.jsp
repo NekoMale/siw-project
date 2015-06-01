@@ -11,7 +11,7 @@
 	<h1>Inserisci una nuova canzone</h1>
 	
 	<form action="<c:url value="/controller/AdminCreateTrack" />" method="post">
-	<div>Titolo: <input type="text" name="title" value="${track.name}"/></div>
+	<div>Titolo: <input type="text" name="name" value="${track.name}"/></div>
 	<div>Autore: <input type="text" name="author" value="${track.author.name}"/></div>
 	<div>Album: <input type="text" name="album" value="${track.album.title}"/></div>
 	<div>Genere: <input type="text" name="genre" value="${track.genre.name}"/></div>

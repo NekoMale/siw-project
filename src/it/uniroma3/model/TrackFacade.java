@@ -18,18 +18,10 @@ public class TrackFacade {
 	}
 	
 	public Track createTrack(String name, String lyric, Author author, Album album, Genre genre){
-		Track t=new Track(name, lyric);
-		t.setAuthor(author);
-		t.setAlbum(album);
-		t.setGenre(genre);
+		Track t = new Track(name, lyric, genre, album, author);
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		
-		em.persist(author);
-		em.persist(album);
-		em.persist(genre);
-		em.persist(t);
-		
+		em.persist(t);	
 		tx.commit();
 		em.close();
 		emf.close();

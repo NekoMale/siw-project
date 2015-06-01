@@ -17,7 +17,6 @@ public class Favourites {
 
 	public Favourites(Long id, Users user, Track track) {
 		super();
-		this.id = id;
 		this.user = user;
 		this.track = track;
 	}

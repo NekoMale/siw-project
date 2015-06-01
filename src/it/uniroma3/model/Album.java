@@ -19,7 +19,7 @@ public class Album {
 	@Column
 	private int numberTracks;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Author author;
 	
 	@OneToMany(mappedBy="album")
@@ -29,9 +29,8 @@ public class Album {
 		super();
 	}
 
-	public Album(Long id, String name, int year, int numberTracks) {
+	public Album(String name, int year, int numberTracks) {
 		super();
-		this.id = id;
 		this.title = name;
 		this.year = year;
 		this.numberTracks = numberTracks;

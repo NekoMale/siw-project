@@ -15,23 +15,31 @@ public class Track {
 	@Column(nullable=false)
 	private String lyric;
 	
-	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+	@OneToOne(cascade=CascadeType.ALL)
 	private Genre genre;
 	
-	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+	@OneToOne(cascade=CascadeType.ALL)
 	private Album album;
 	
-	@OneToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+	@OneToOne(cascade=CascadeType.ALL)
 	private Author author;
 		
 	public Track() {
-		super();
 	}
 
 	public Track(String name, String lyric) {
+		this.name = name;
+		this.lyric = lyric;
+	}
+
+	public Track(String name, String lyric, Genre genre, Album album,
+			Author author) {
 		super();
 		this.name = name;
 		this.lyric = lyric;
+		this.genre = genre;
+		this.album = album;
+		this.author = author;
 	}
 
 	public Long getId() {

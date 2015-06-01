@@ -21,9 +21,8 @@ public class Genre {
 		this.track = new LinkedList<Track>();
 	}
 
-	public Genre(Long id, String name) {
+	public Genre(String name) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.track = new LinkedList<Track>();
 	}

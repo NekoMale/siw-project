@@ -22,16 +22,15 @@ public class Author {
 	@OneToMany(mappedBy="author")
 	private List<Track> tracks;
 	
-	@OneToMany(mappedBy="author")
+	@OneToMany(mappedBy="author",cascade=CascadeType.ALL)
 	private List<Album> album;
 
 	public Author() {
 		super();
 	}
 
-	public Author(Long id, String name, Date debut, String info) {
+	public Author(String name, Date debut, String info) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.debut = debut;
 		this.info = info;
