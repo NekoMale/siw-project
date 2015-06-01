@@ -8,10 +8,14 @@ public class GetTrack implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
+		String man = request.getParameter("man");
 		TrackFacade tf = new TrackFacade();
 		Track track = tf.findTrack(Long.parseLong(request.getParameter("id")));
 		request.setAttribute("trackRequested", track);
-		return "/trackdetails.jsp";
+		if(man != "on")
+			return "/admin/edittrack.jsp";
+		else
+			return "/trackdetails.jsp";
 	}
 
 }

@@ -1,5 +1,6 @@
 package it.uniroma3.controller.action;
 
+import it.uniroma3.controller.helper.HelperCreateTrack;
 import it.uniroma3.model.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,28 +9,42 @@ public class AdminCreateTrack implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
-				
-		Author aut = new Author();
-		aut.setName(request.getParameter("author"));
+		HelperCreateTrack helper = new HelperCreateTrack();
 		
-		Album al = new Album();
-		al.setTitle(request.getParameter("album"));
-		
-		Genre gen = new Genre();
-		gen.setName(request.getParameter("genre"));
-		
-		TrackFacade tf=new TrackFacade();
-		Track t = tf.createTrack(request.getParameter("name"),request.getParameter("lyric"), aut, al, gen);
-		
-		/*new Track(request.getParameter("name"), request.getParameter("lyric"));
-		t.setAuthor(aut);
-		t.setAlbum(al);
-		t.setGenre(gen);*/
-		
-		//request.setAttribute("track",t);
-		
-		
-		return "/admin/trackpanel.jsp";
+		if(helper.isValid(request)) {
+			String authorName = request.getParameter("author");
+			String albumTitle = request.getParameter("album");
+			String genreName = request.getParameter("genre");
+			
+			AuthorFacade af = new AuthorFacade();
+			Author author = af.getAuthor(authorName);
+			Album album;
+			if(author==null) {
+				author = new Author(authorName);
+				album = new Album(albumTitle);
+				album.setAuthor(author);
+			}
+			else {
+				AlbumFacade alf = new AlbumFacade();
+				album = alf.getAlbumByAuthor(albumTitle,author.getId());
+				if(album==null) {
+					album = new Album(albumTitle);
+					album.setAuthor(author);
+				}
+			}
+			GenreFacade gf = new GenreFacade();
+			Genre genre = gf.getGenre(genreName);
+			if(genre==null) {
+				genre = new Genre(genreName);
+			}
+			
+			TrackFacade tf=new TrackFacade();
+			Track track = tf.createTrack(request.getParameter("name"),request.getParameter("lyric"), author, album, genre);
+			
+			return "/controller/AdminTrackList";	
+		}
+		else {
+			return "/admin/createtrack.jsp";
+		}
 	}
-
 }

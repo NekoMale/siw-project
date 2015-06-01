@@ -23,7 +23,7 @@ ${msg}
 				<input type="hidden" name="username" value="${users.username}"/>
 				<input type="submit" value="gestisci"/>
 				</form></td>
-			<td><form action="<c:url value="/admin/confdelete.jsp" />" method="get">
+			<td><form action="<c:url value="/admin/confdeleteuser.jsp" />" method="get">
 				<input type="hidden" name="id" value="${users.id}"/>
 				<input type="hidden" name="username" value="${users.username}"/>
 				<input type="submit" value="elimina"/>
