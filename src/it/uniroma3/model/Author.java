@@ -13,10 +13,10 @@ public class Author {
 	@Column(nullable=false)
 	private String name;
 	
-	@Column(nullable=false)
+	@Column
 	private Date debut;
 	
-	@Column(nullable=false)
+	@Column
 	private String info;
 	
 	@OneToMany(mappedBy="author")

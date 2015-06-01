@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>Benvenuto ${user.username}</h1>
-	<a href="pannellocanzoni.jsp">Gestione Canzoni</a><br>
+	<a href="<c:url value="/controller/AdminTrackList" />">Gestione Canzoni</a><br>
 	<a href="<c:url value="/controller/AdminUserList" />">Gestione Utenti</a>
 </body>
 </html>
