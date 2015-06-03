@@ -6,11 +6,11 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Lyrics - Registrati</title>
+		<title>Lyrics - Home</title>
         <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" >
         <link href="${pageContext.request.contextPath}/css/interface.css" rel="stylesheet" >
-        <link href="${pageContext.request.contextPath}/css/register.css" rel="stylesheet" >
+        <link href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet" >
 	</head>
 	<body>
 		<!-- navbar top - header -->
@@ -48,41 +48,33 @@
 	                </div>                
 	            </div>
 	    </header>
-	    
-		<div class="container text-center page-title">
-			<h1>Registrati</h1>
-	    </div>
+              
+        <div class="container page-body">
+        	<div class="row">
+        		<div class="col-md-5">
+        			<h1>Ultimi testi inseriti</h1>
+        			<c:forEach var="lastTracks" items="${lastTracks}" varStatus="tracksCount" begin="0" end="3">
+        				<p><a href="<c:url value="" />">${lastTracks.author.name} - ${lastTracks.name}</a></p>
+        			</c:forEach>
+        		</div>
+        		<div class="col-md-2"></div>
+        		<div class="col-md-5">
+        			<h1>I testi che preferite</h1>
+        			<p><a href="<c:url value="" />">Testo 1</a></p>
+        			<p><a href="<c:url value="" />">Testo 2</a></p>
+        			<p><a href="<c:url value="" />">Testo 3</a></p>
+        		</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-12">
+        			<h1>I testi più visualizzati</h1>
+        			<p><a href="<c:url value="" />">Testo 1</a></p>
+        			<p><a href="<c:url value="" />">Testo 2</a></p>
+        			<p><a href="<c:url value="" />">Testo 3</a></p>
+        		</div>
+        	</div>
+        </div>
 		
-		<div class="container register-form">
-			<form action="<c:url value="/controller/Register" />" method="post">
-		    	<div class="row">
-		    		<div class="col-md-2"></div>
-		    		<div class="col-md-4">
-						<label for="username">Username:</label>
-						<input type="text" class="form-control" name="username" id="username" value="${username}"/>
-						<p>${usernameErr}</p>
-						<label for="email">Email:</label>
-						<input type="email" class="form-control" name="email" id="email" value="${email}"/>
-						<p>${emailErr}</p>
-						<label for="confemail">Conferma Email:</label>
-						<input type="email" class="form-control" name="confemail" id="confemail" value="${confemail}"/>
-						<p>${confEmailErr}</p>
-		    		</div>
-		    		<div class="col-md-4">
-						<label for="password">Password:</label>
-						<input type="password" class="form-control" name="password" id="password" />
-						<p>${passwordErr}</p>
-						<label for="confpassword">Conferma Password:</label>
-						<input type="password" class="form-control" name="confpassword" id="confpassword" />
-						<p>${confPasswordErr}</p>
-		    		</div>
-		    	</div>
-		    	<div class="row text-center">
-					<input type="submit" value="registrati"/>
-		    	</div>
-			</form>
-	    </div>
-	    
 		<footer class="footer navbar-default">
 	        <div class="container">
 	            <div class="row">

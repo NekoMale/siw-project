@@ -8,11 +8,22 @@
 }
 
 .footer {
-    margin-top: 50px;
-    height: 150px;
+    margin-top: 40px;
+    padding: 15px 0;
 }
 
 .footer ul {
-    margin-top: 15px;
     list-style: none;
+}
+
+@media (min-width: 1440px) {
+	.footer {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+	}
+	
+	.footer ul {
+		margin: auto;
+	}
 }

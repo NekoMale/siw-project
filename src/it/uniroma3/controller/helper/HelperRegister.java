@@ -39,6 +39,12 @@ public class HelperRegister {
 			request.setAttribute("confPasswordErr","Le password non corrispondono");
 			errors = true;
 		}
+
+		request.setAttribute("username", username);
+		request.setAttribute("email", email);
+		request.setAttribute("confemail", confEmail);
+		request.setAttribute("password", password);
+		request.setAttribute("confpassword", confPassword);
 		
 		return !errors;
 	}

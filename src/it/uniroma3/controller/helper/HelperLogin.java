@@ -30,13 +30,15 @@ public class HelperLogin {
 		
 		Users user = uf.findUser(username);
 		if(user==null) {
-			request.setAttribute("combinationErr", "Username errata");
+			request.setAttribute("usernameErr", "Username errata");
 			errors = true;
 		}
 		else if(!user.getPassword().equals(password)) {
 			request.setAttribute("combinationErr", "Password o Username errata");
 			errors = true;
 		}
+
+		request.setAttribute("username", username);
 		
 		return !errors;
 	}

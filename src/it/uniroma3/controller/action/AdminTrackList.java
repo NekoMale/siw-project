@@ -11,7 +11,7 @@ public class AdminTrackList implements Action {
 		TrackFacade tf = new TrackFacade();
 		List<Track> tracks = tf.retrieveAllTracks();
 		request.setAttribute("tracks", tracks);
-		return "/admin/trackpanel.jsp";
+		return "/admin/trackspanel.jsp";
 	}
 
 }

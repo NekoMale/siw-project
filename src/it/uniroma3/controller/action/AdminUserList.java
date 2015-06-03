@@ -14,7 +14,7 @@ public class AdminUserList implements Action {
 		UserFacade uf = new UserFacade();
 		List<Users> users = uf.retrieveAllUsers();
 		request.setAttribute("users", users);
-		return "/admin/pannelloutenti.jsp";
+		return "/admin/userslist.jsp";
 	}
 
 }

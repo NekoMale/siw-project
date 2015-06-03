@@ -51,6 +51,17 @@ public class TrackFacade {
 		return tracks;
 	}
 
+	public List<Track> retrieveLastTracks() {
+		List<Track> tracks;
+		try {
+			tracks = em.createQuery("SELECT t FROM Track t ORDER BY t.id DESC").getResultList();
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return tracks;
+	}
+	
 	public boolean deleteTrack(Long id) {
 		Track track = em.find(Track.class, id);
 		try {
