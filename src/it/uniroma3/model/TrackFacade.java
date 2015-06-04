@@ -87,24 +87,34 @@ public class TrackFacade {
 		em.close();
 		emf.close();
 		return true;
-		/*Track track = em.find(Track.class, id);
+	}
+
+	public List<Track> retrieveTracksByKeyword(String keyword) {
+		List<Track> tracks;
 		try {
-			EntityTransaction tx = em.getTransaction();
-			tx.begin();
-			track.setName(name);
-			track.setLyric(lyric);
-			track.setAlbum(album);
-			if(!track.getAuthor().getName().equals(author.getName())) {
-				track.setAuthor(author); }
-			track.setGenre(genre);
-			tx.commit();
-			em.close();
-			emf.close();
+			tracks = em.createQuery("SELECT t FROM Track t WHERE lower(t.name) LIKE :keyword OR lower(t.author.name) LIKE :keyword OR lower(t.album.title) LIKE :keyword OR lower(t.lyric) LIKE :keyword")
+						.setParameter("keyword", "%"+keyword.toLowerCase()+"%").getResultList();
 		}
 		catch(Exception e) {
-			request.setAttribute("errUpdate", e);
-			return false;
+			return null;
 		}
-		return true;*/
+		return tracks;
+	}
+
+	public List<Track> retrieveTracksByAdvancedSearch(String lyric, String nameTrack, String albumTitle, String nameAuthor, HttpServletRequest request) {
+		List<Track> tracks;
+		try {
+			tracks = em.createQuery("SELECT t FROM Track t WHERE lower(t.name) LIKE :nameTrack AND lower(t.author.name) LIKE :nameAuthor AND lower(t.album.title) LIKE :albumTitle AND lower(t.lyric) LIKE :lyric")
+						.setParameter("nameTrack", "%"+nameTrack.toLowerCase()+"%")
+						.setParameter("nameAuthor", "%"+nameAuthor.toLowerCase()+"%")
+						.setParameter("albumTitle", "%"+albumTitle.toLowerCase()+"%")
+						.setParameter("lyric", "%"+lyric.toLowerCase()+"%")
+						.getResultList();
+		}
+		catch(Exception e) {
+			request.setAttribute("msg", e.toString());
+			return null;
+		}
+		return tracks;
 	}
 }

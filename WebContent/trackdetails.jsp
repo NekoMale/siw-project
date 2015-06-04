@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+${man}
 <h1>${trackRequested.author.name} - ${trackRequested.name}</h1>
 <div>titolo = ${trackRequested.name}</div>
 <div>autore = ${trackRequested.author.name}</div>

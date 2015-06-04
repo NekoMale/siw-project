@@ -12,7 +12,7 @@ public class GetTrack implements Action {
 		TrackFacade tf = new TrackFacade();
 		Track track = tf.findTrack(Long.parseLong(request.getParameter("id")));
 		request.setAttribute("trackRequested", track);
-		if(man != "on")
+		if(man != null && man != "")
 			return "/admin/edittrack.jsp";
 		else
 			return "/trackdetails.jsp";

@@ -3,6 +3,10 @@
 	margin-bottom: 50px;
 }
 
+.navbar-nav .p {
+	width: 25px;
+}
+
 .smallest-body {
 	height: 515px;
 }

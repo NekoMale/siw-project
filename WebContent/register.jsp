@@ -30,6 +30,7 @@
 	                        <li><a href="#">Inglesi</a></li>
 	                        <li><a href="#">Altre lingue</a></li>
 	                        <li><a href="#">Generi</a></li>
+	                        <li><a href="<c:url value="/search.jsp"/>">Ricerca</a></li>
 	                        <li><p></p></li>
 	                        <li>
 		                        <c:choose>

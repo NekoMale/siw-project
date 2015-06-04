@@ -16,7 +16,7 @@ ${msg}
 	</tr>
 	<c:forEach var="users" items="${users}">
 		<tr>
-			<td><a href="<c:url value="/controller/AdminGetUser?un=${users.username}" />">${users.username}</a></td>
+			<td><a href="<c:url value="/controller/AdminGetUser?username=${users.username}" />">${users.username}</a></td>
 			<td>${users.email}</td>
 			<td><form action="<c:url value="/controller/AdminGetUser" />" method="get">
 				<input type="hidden" name="man" value="on"/>

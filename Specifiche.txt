@@ -16,9 +16,7 @@ Scenario Principale:
 Attore Primario: Utente qualsiasi
 Scenario Principale
 - L'utente scrive in una textbox ciò che ricorda della canzone
-- Il sistema, in tempo reale (AJAX), mostra tutte le canzoni che contengono nel 
-
-titolo/artista/album il testo inserito dall'utente
+- Il sistema, in tempo reale (AJAX), mostra tutte le canzoni che contengono nel titolo/artista/album/testo il testo inserito dall'utente
 - L'utente sceglie la canzone tra quelle proposte e ne richiede il testo
 - Il sistema mostra il testo richiesto
 
