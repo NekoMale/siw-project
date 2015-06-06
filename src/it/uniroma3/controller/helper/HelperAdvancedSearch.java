@@ -11,7 +11,7 @@ public class HelperAdvancedSearch {
 		String author = request.getParameter("author");
 		Boolean errors = false;
 		
-		if( (name!=null||name!="") && (lyric!=null||lyric!="") && (album!=null||album!="") && (author!=null||author!="")){
+		if( (name==null||name=="") && (lyric==null||lyric=="") && (album==null||album=="") && (author==null||author=="")){
 			request.setAttribute("advancedErr", "Devi compilare almeno un campo!");
 			errors = true;
 		}

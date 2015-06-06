@@ -1,7 +1,11 @@
-.col-md-5 > h1, .col-md-12 > h1, .col-md-5 > p, .col-md-12 > p {
+.page-body h1, .page-body p {
 	text-align: center;
 }
 
 .page-body > .row {
 	margin-top: 50px;
+}
+
+.page-body {
+	margin-bottom: 43px;
 }

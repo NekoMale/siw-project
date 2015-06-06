@@ -1,29 +1,104 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Insert title here</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Lyrics - Risultati per ${keyword}</title>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" >
+        <link href="${pageContext.request.contextPath}/css/interface.css" rel="stylesheet" >
+        <link href="${pageContext.request.contextPath}/css/searchresult.css" rel="stylesheet" >
 	</head>
 	<body>
-		${msg}
-		<table>
-			<tr>
-				<th>Titolo</th>
-				<th>Autore</th>
-				<th>Album</th>
-				<th>Genere</th>
-			</tr>
+		<header class="navbar navbar-default">
+	        <div class="container">
+	        	<div class="navbar-header">
+	            	<a href="<c:url value="/controller/HomeLoad"/>" class="navbar-brand logo">Lyrics Site</a>
+	                <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+	                	<span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	            </div>
+	            <div class="collapse navbar-collapse navHeaderCollapse">
+	                <ul class="nav navbar-nav navbar-right">
+	            	    <li><a href="#">Canzoni</a></li>
+	                    <li><a href="#">Artisti</a></li>
+	                    <li><a href="#">Generi</a></li>
+	                    <li><a href="<c:url value="/search.jsp"/>">Ricerca</a></li>
+	                    <li><p></p></li>
+	                    <li>
+		                <c:choose>
+		                	<c:when test="${user.username!=null}">
+		                  		<a href="<c:url value="#"/>">Profilo ${user.username}</a>
+		                   	</c:when>
+		                   	<c:otherwise>
+		                   		<a href="<c:url value="/login.jsp"/>">Accedi</a>
+		                   	</c:otherwise>
+		            	</c:choose>
+		                </li>
+		                <c:if test="${user.isAdmin==true}">
+		                  	<li><a href="<c:url value="/admin"/>">Gestione Sito</a></li>
+		                </c:if>
+	                    <c:if test="${user.username==null}">
+	                      	<li><a href="<c:url value="/register.jsp"/>" >Registrati</a></li>
+	                    </c:if>
+	                </ul>
+	            </div>
+	    	</div>
+	    </header>
+	
+		<div class="container result-body <c:if test="${fn:length(searchedTracks) < 9}">empty-body</c:if>">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Risultati ricerca per: ${param.keyword}</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-4"><h4>Titolo</h4></div>
+				<div class="col-md-2"><h4>Autore</h4></div>
+				<div class="col-md-2"><h4>Album</h4></div>
+				<div class="col-md-1"><h4>Genere</h4></div>
+			</div>
 			<c:forEach var="searchedTracks" items="${searchedTracks}">
-				<tr>
-					<td><a href="<c:url value="/controller/GetTrack?id=${searchedTracks.id}" />" target = "_blank">${searchedTracks.name}</a></td>
-					<td>${searchedTracks.author.name}</td>
-					<td>${searchedTracks.album.title}</td>
-					<td>${searchedTracks.genre.name}</td>
-				</tr>
+				<div class="row result">
+					<div class="col-md-1"></div>
+					<div class="col-md-4"><a href="<c:url value="/controller/GetTrack?id=${searchedTracks.id}" />" target = "_blank">${searchedTracks.name}</a></div>
+					<div class="col-md-2">${searchedTracks.author.name}</div>
+					<div class="col-md-2">${searchedTracks.album.title}</div>
+					<div class="col-md-1">${searchedTracks.genre.name}</div>
+				</div>
 			</c:forEach>
-		</table>
+		</div>
+	
+		${msg}		
+		
+		<footer class="footer navbar-default">
+	        <div class="container">
+	            <div class="row">
+	                <ul class="col-md-3">
+	                    <li><b>Mappa Sito:</b></li>
+	                    <li><a href="#"></a></li>
+	                    <li></li>
+	                    <li><a href="#"></a></li>
+	                </ul>
+	                <ul class="col-md-3">
+	                    <li><b>Info</b></li>
+	                    <li><a href="#">Chi Siamo</a></li>
+	                    <li><a href="#">Perché siamo nati</a></li>
+	                </ul>
+	                <ul class="col-md-6">
+	                    <li><b>Lyrics Site</b></li>
+	                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac pretium arcu, eget congue nisl. Sed rutrum enim sem, ac hendrerit felis posuere eu.</li>
+	                    <li>Sito realizzato da: NekoMale & Vetrix</li>
+	                </ul>
+	            </div>
+	        </div>
+	    </footer>
 	</body>
 </html>

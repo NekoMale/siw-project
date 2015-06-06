@@ -46,7 +46,7 @@ public class Controller extends HttpServlet {
 			nextPage = action.perform(request);
 		}catch(Exception e){
 			request.setAttribute("err", e);
-			nextPage="/index.jsp";
+			nextPage="/errorpage.jsp";
 		}
 		
 		nextPage = response.encodeURL(nextPage);

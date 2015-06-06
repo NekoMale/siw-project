@@ -13,49 +13,50 @@
         <link href="${pageContext.request.contextPath}/css/index.css" rel="stylesheet" >
 	</head>
 	<body>
-		<!-- navbar top - header -->
 	    <header class="navbar navbar-default">
 	        <div class="container">
-	                <div class="navbar-header">
-	                    <a href="<c:url value="/controller/HomeLoad"/>" class="navbar-brand logo">Lyrics Site</a>
-	                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
-	                        <span class="icon-bar"></span>
-	                        <span class="icon-bar"></span>
-	                        <span class="icon-bar"></span>
-	                    </button>
-	                </div>
-	                <div class="collapse navbar-collapse navHeaderCollapse">
-	                    <ul class="nav navbar-nav navbar-right">
-	                        <li><a href="#">Italiane</a></li>
-	                        <li><a href="#">Inglesi</a></li>
-	                        <li><a href="#">Altre lingue</a></li>
-	                        <li><a href="#">Generi</a></li>
-	                        <li><a href="<c:url value="/search.jsp"/>">Ricerca</a></li>
-	                        <li><p></p></li>
-	                        <li>
-		                        <c:choose>
-		                        	<c:when test="${user.username!=null}">
-		                        		<a href="<c:url value="#"/>">Profilo ${user.username}</a>
-		                        	</c:when>
-		                        	<c:otherwise>
-		                        		<a href="<c:url value="/login.jsp"/>">Accedi</a>
-		                        	</c:otherwise>
-		                        </c:choose>
-		                    </li>
-	                        <c:if test="${user.username==null}">
-	                        	<li><a href="<c:url value="/register.jsp"/>" >Registrati</a></li>
-	                        </c:if>
-	                    </ul>
-	                </div>                
+	        	<div class="navbar-header">
+	            	<a href="<c:url value="/controller/HomeLoad"/>" class="navbar-brand logo">Lyrics Site</a>
+	                <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+	                	<span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
 	            </div>
+	            <div class="collapse navbar-collapse navHeaderCollapse">
+	                <ul class="nav navbar-nav navbar-right">
+	            	    <li><a href="#">Canzoni</a></li>
+	                    <li><a href="#">Artisti</a></li>
+	                    <li><a href="#">Generi</a></li>
+	                    <li><a href="<c:url value="/search.jsp"/>">Ricerca</a></li>
+	                    <li><p></p></li>
+	                    <li>
+		                <c:choose>
+		                	<c:when test="${user.username!=null}">
+		                  		<a href="<c:url value="#"/>">Profilo ${user.username}</a>
+		                   	</c:when>
+		                   	<c:otherwise>
+		                   		<a href="<c:url value="/login.jsp"/>">Accedi</a>
+		                   	</c:otherwise>
+		            	</c:choose>
+		                </li>
+		                <c:if test="${user.isAdmin==true}">
+		                  	<li><a href="<c:url value="/admin"/>">Gestione Sito</a></li>
+		                </c:if>
+	                    <c:if test="${user.username==null}">
+	                      	<li><a href="<c:url value="/register.jsp"/>" >Registrati</a></li>
+	                    </c:if>
+	                </ul>
+	            </div>
+	    	</div>
 	    </header>
               
         <div class="container page-body">
         	<div class="row">
         		<div class="col-md-5">
         			<h1>Ultimi testi inseriti</h1>
-        			<c:forEach var="lastTracks" items="${lastTracks}" varStatus="tracksCount" begin="0" end="3">
-        				<p><a href="<c:url value="" />">${lastTracks.author.name} - ${lastTracks.name}</a></p>
+        			<c:forEach var="lastTracks" items="${lastTracks}" varStatus="tracksCount" begin="0" end="2">
+        				<p><a href="<c:url value="/controller/GetTrack?id=${lastTracks.id}" />">${lastTracks.author.name} - ${lastTracks.name}</a></p>
         			</c:forEach>
         		</div>
         		<div class="col-md-2"></div>

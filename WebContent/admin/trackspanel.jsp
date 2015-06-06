@@ -36,4 +36,5 @@
 		</c:forEach>
 	</table>
 	${errUpdate}
+	${msg}
 </html>

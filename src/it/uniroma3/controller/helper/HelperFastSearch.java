@@ -8,7 +8,7 @@ public class HelperFastSearch {
 		String keyword = request.getParameter("keyword");
 		Boolean errors = false;
 		
-		if(keyword!=null||keyword!=""){
+		if(keyword==null||keyword==""){
 			request.setAttribute("keywordErr", "Devi scrivere qualcosa!");
 			errors = true;
 		}

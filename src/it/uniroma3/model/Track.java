@@ -12,7 +12,7 @@ public class Track {
 	@Column(nullable=false)
 	private String name;
 	
-	@Column(nullable=false)
+	@Column(nullable=false,length=10000)
 	private String lyric;
 	
 	@OneToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})

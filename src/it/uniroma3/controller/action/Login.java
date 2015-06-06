@@ -22,8 +22,6 @@ public class Login implements Action {
 			Users user = uf.findUser(username);
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			if(user.getisAdmin())
-				return "/admin/index.jsp";
 			return "/index.jsp";
 		}else{
 			return "/login.jsp";
