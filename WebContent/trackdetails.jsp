@@ -64,6 +64,15 @@
 	    			${trackRequested.lyric}
 	    		</div>
 	    	</div>
+	    	<div class="row">
+	    		<div class="col-md-1"></div>
+	    		<div class="col-md-2">
+	    			<form <c:choose><c:when test="${favourite==null}">action="controller/Like"</c:when><c:otherwise>action="controller/Dislike"</c:otherwise></c:choose>method="post">
+	    				<input type="hidden" name="track" value="${trackRequested}">
+	    				<input type="submit" class="btn btn-primary" <c:choose><c:when test="${favourite==null}">value="mi piace"</c:when><c:otherwise>value="non mi piace più"</c:otherwise></c:choose>>
+	    			</form>
+	    		</div>
+	    	</div>
 	    </div>
 
 		<footer class="footer navbar-default">

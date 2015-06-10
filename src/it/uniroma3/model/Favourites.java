@@ -15,7 +15,7 @@ public class Favourites {
 	@ManyToOne
 	private Track track;
 
-	public Favourites(Long id, Users user, Track track) {
+	public Favourites(Users user, Track track) {
 		super();
 		this.user = user;
 		this.track = track;
