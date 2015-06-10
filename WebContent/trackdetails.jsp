@@ -67,7 +67,14 @@
 	    	<div class="row">
 	    		<div class="col-md-1"></div>
 	    		<div class="col-md-2">
-	    			Mi piace: ${nFav}
+	    			<c:choose>
+	    				<c:when test="${trackRequested.favs==1}">
+							Piace a 1 persona
+						</c:when>
+						<c:otherwise>
+							Piace a ${trackRequested.favs} persone
+						</c:otherwise>
+					</c:choose>		
 	    		<c:if test="${user.username!=null}">
 	    			<form <c:choose><c:when test="${fav==0}">action="<c:url value="/controller/Like"/>"</c:when>
 	    						  <c:otherwise>action="<c:url value="/controller/Dislike"/>"</c:otherwise></c:choose> method="post">

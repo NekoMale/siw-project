@@ -18,6 +18,7 @@ public class FavouritesFacade {
 	
 
 	public Favourites createFav(Track track, Users user) {
+		track.setFavs((track.getFavs())+1);
 		Favourites fav = new Favourites(user, track);
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
@@ -45,10 +46,12 @@ public class FavouritesFacade {
 
 
 	public Favourites deleteFav(Track track, Users user) {
+		track.setFavs((track.getFavs())-1);
 		Favourites fav = findFav(user,track);
 		try {
 			EntityTransaction tx = em.getTransaction();
 			tx.begin();
+			em.merge(track);
 			em.remove(fav);
 			tx.commit();
 			em.close();

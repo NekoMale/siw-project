@@ -15,6 +15,9 @@ public class Track {
 	@Column(nullable=false,length=10000)
 	private String lyric;
 	
+	@Column(nullable=false)
+	private int favs;
+	
 	@OneToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
 	private Genre genre;
 	
@@ -30,6 +33,7 @@ public class Track {
 	public Track(String name, String lyric) {
 		this.name = name;
 		this.lyric = lyric;
+		this.favs = 0;
 	}
 
 	public Track(String name, String lyric, Genre genre, Album album, Author author) {
@@ -39,6 +43,7 @@ public class Track {
 		this.genre = genre;
 		this.album = album;
 		this.author = author;
+		this.favs = 0;
 	}
 
 	public Track(Long id, String name, String lyric, Genre genre, Album album, Author author) {
@@ -49,6 +54,7 @@ public class Track {
 		this.genre = genre;
 		this.album = album;
 		this.author = author;
+		this.favs = 0;
 	}
 
 	public Long getId() {
@@ -97,6 +103,14 @@ public class Track {
 
 	public void setAuthor(Author author) {
 		this.author = author;
+	}
+	
+	public int getFavs() {
+		return favs;
+	}
+
+	public void setFavs(int favs) {
+		this.favs = favs;
 	}
 
 	@Override
