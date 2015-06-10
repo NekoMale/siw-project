@@ -12,12 +12,17 @@ public class GetTrack implements Action {
 		HttpSession session = request.getSession();
 		String man = request.getParameter("man");
 		TrackFacade tf = new TrackFacade();
-		FavouritesFacade ff = new FavouritesFacade();
 		Track track = tf.findTrack(Long.parseLong(request.getParameter("id")));
 		Users user = (Users) session.getAttribute("user");
-		Favourites fav = ff.findFav(user,track);
 		request.setAttribute("trackRequested", track);
-		request.setAttribute("favourite", fav);
+		
+		FavouritesFacade ff = new FavouritesFacade();
+		Favourites fav = ff.findFav(user,track);
+		if(fav==null)
+			request.setAttribute("fav", 0);
+		else
+			request.setAttribute("fav", fav.getId());
+		
 		if(man != null && man != "")
 			return "/admin/edittrack.jsp";
 		else

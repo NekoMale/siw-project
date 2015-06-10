@@ -67,10 +67,13 @@
 	    	<div class="row">
 	    		<div class="col-md-1"></div>
 	    		<div class="col-md-2">
-	    			<form <c:choose><c:when test="${favourite==null}">action="controller/Like"</c:when><c:otherwise>action="controller/Dislike"</c:otherwise></c:choose>method="post">
-	    				<input type="hidden" name="track" value="${trackRequested}">
-	    				<input type="submit" class="btn btn-primary" <c:choose><c:when test="${favourite==null}">value="mi piace"</c:when><c:otherwise>value="non mi piace più"</c:otherwise></c:choose>>
-	    			</form>
+	    			Mi piace: ${nFav}
+	    		<c:if test="${user.username!=null}">
+	    			<form <c:choose><c:when test="${fav==0}">action="<c:url value="/controller/Like"/>"</c:when>
+	    						  <c:otherwise>action="<c:url value="/controller/Dislike"/>"</c:otherwise></c:choose> method="post">
+	    				<input type="hidden" name="idTrack" value="${trackRequested.id}">
+	    				<input type="submit" class="btn btn-primary" value="<c:choose><c:when test="${fav==0}">mi piace</c:when><c:otherwise>non mi piace più</c:otherwise></c:choose>">
+	    			</form></c:if>
 	    		</div>
 	    	</div>
 	    </div>
