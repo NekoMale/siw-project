@@ -29,7 +29,7 @@
 		            	<li><a href="<c:url value="/controller/AdminTrackList" />">Gestione Canzoni</a></li>
 		                <li><a href="<c:url value="/controller/AdminUserList" />">Gestione Utenti</a></li>
 		                <li><p></p></li>
-		                <li><a href="<c:url value="#"/>">Profilo ${user.username}</a></li>
+		                <li><a href="<c:url value="/controller/GetUser?username=${user.username}"/>">Profilo ${user.username}</a></li>
 			            <li><a href="<c:url value="/controller/HomeLoad"/>">Torna al Sito</a></li>
 		            </ul>
 		        </div>

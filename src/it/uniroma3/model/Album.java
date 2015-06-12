@@ -50,11 +50,11 @@ public class Album {
 		this.title = title;
 	}
 
-	public int getAnno() {
+	public int getYear() {
 		return year;
 	}
 
-	public void setAnno(int year) {
+	public void setYear(int year) {
 		this.year = year;
 	}
 

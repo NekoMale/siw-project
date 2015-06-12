@@ -1,5 +1,7 @@
 package it.uniroma3.model;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -25,5 +27,16 @@ public class AuthorFacade {
 			return null;
 		}
 		return author;
+	}
+	
+	public List<Author> retrieveAllAuthors(){
+		List<Author> authors;
+		try {
+			authors = em.createQuery("SELECT a FROM Author a").getResultList();
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return authors;
 	}
 }

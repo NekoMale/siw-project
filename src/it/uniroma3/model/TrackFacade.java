@@ -127,4 +127,17 @@ public class TrackFacade {
 		}
 		return tracks;
 	}
+	
+	public List<Track> retrieveTracksByGenre(String genreName) {
+		List<Track> tracks;
+		try {
+			tracks = em.createQuery("SELECT t FROM Track t WHERE t.genre.name LIKE :genre")
+						.setParameter("genre",""+genreName)
+						.getResultList();
+		}
+		catch(Exception e){
+			return null;
+		}
+		return tracks;
+	}
 }

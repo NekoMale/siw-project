@@ -26,15 +26,15 @@
 	                </div>
 	                <div class="collapse navbar-collapse navHeaderCollapse">
 	                    <ul class="nav navbar-nav navbar-right">
-	                        <li><a href="#">Canzoni</a></li>
-	                        <li><a href="#">Artisti</a></li>
-	                        <li><a href="#">Generi</a></li>
-	                        <li><a href="<c:url value="/search.jsp"/>">Ricerca</a></li>
-	                        <li><p></p></li>
-	                        <li>
-		                        <c:choose>
-		                        	<c:when test="${user.username!=null}">
-		                        		<a href="<c:url value="#"/>">Profilo ${user.username}</a>
+	            	    <li><a href="<c:url value="/controller/GetAllTracks" />">Canzoni</a></li>
+	                    <li><a href="<c:url value="/controller/GetAllAuthors" />">Artisti</a></li>
+	                    <li><a href="<c:url value="/controller/GetAllGenres" />">Generi</a></li>
+	                    <li><a href="<c:url value="/search.jsp"/>">Ricerca</a></li>
+	                    <li><p></p></li>
+	                    <li>
+		                <c:choose>
+		                	<c:when test="${user.username!=null}">
+		                  		<a href="<c:url value="/controller/GetUser?username=${user.username}"/>">Profilo ${user.username}</a>
 		                        	</c:when>
 		                        	<c:otherwise>
 		                        		<a href="<c:url value="/login.jsp"/>">Accedi</a>

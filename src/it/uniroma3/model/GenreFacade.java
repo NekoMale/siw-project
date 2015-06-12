@@ -1,5 +1,7 @@
 package it.uniroma3.model;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -24,5 +26,15 @@ public class GenreFacade {
 		}
 		return genre;
 	}
-
+	
+	public List<Genre> retrieveAllGenres(){
+		List<Genre> genres;
+		try {
+			genres = em.createQuery("SELECT g FROM Genre g")
+								.getResultList();
+		}catch(Exception e){
+			return null;
+		}
+		return genres;
+	}
 }
