@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Lyrics Admin - Modifica ${trackRequested.author.name} - ${trackRequested.name}</title>
+		<title>Lyrics Admin - Ricerca Utente</title>
         <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" >
         <link href="${pageContext.request.contextPath}/css/interface.css" rel="stylesheet" >
-        <link href="${pageContext.request.contextPath}/admin/css/edittrack.css" rel="stylesheet" >
+        <link href="${pageContext.request.contextPath}/css/search.css" rel="stylesheet" >
+        <link href="${pageContext.request.contextPath}/admin/css/adminsearch.css" rel="stylesheet" >
 	</head>
 	<body>
 		<!-- navbar top - header -->
@@ -35,47 +36,42 @@
 		        </div>
 		    </div>
 	    </header>
-		
-		<div class="container">
-			<div class="row text-center title-row">
-				<h1>Modifica: ${trackRequested.name}</h1>
-			</div>
+	    
+	    <div class="container advanced-search-form user-search-form">
+	    	<div class="row">
+	    		<div class="col-md-2"></div>
+		    	<div class="col-md-10">
+		    		<h1>Ricerca Canzoni</h1>
+					<h5>Riempi almeno uno dei seguenti campi</h5>
+				</div>
+		   	</div>
+		   	<form action="<c:url value="/controller/AdminUserSearch"/>" method="get">
+			   	<div class="row mid-row">
+			    	<div class="col-md-2"></div>
+			    	<div class="col-md-4">
+			    		<label for="username">Username:</label>
+				   		<input type="text" class="form-control" name="username" id="username" />
+				   	</div>
+				   	<div class="col-md-4">
+				   		<label for="author">Email:</label>
+				   		<input type="text" class="form-control" name="email" id="email" />
+				   	</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-md-5"></div>
+					<div class="col-md-2">
+					   	<input type="submit" class="btn btn-info" value="cerca" />
+					</div>
+				</div>
+			</form>
+			<div class="row">
+		    	<div class="col-md-2"></div>
+		    	<div class="col-md-9">
+				   	<p>${advancedErr}</p>
+				</div>
+		    </div>
 		</div>
-		<div class="container edit-body">
-			<form action="<c:url value="/controller/AdminEditTrack" />" method="post">
-				<input type="hidden" name="id" value="${trackRequested.id}"/>
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-1"><label for="name">Titolo:</label></div>
-					<div class="col-md-7"><input type="text" class="form-control" name="name" id="name" value="${trackRequested.name}"/></div>
-				</div>
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-1"><label for="author">Autore:</label></div>
-					<div class="col-md-7"><input type="text" class="form-control" name="author" id="author" value="${trackRequested.author.name}"/></div>
-				</div>
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-1"><label for="album">Album:</label></div>
-					<div class="col-md-7"><input type="text" class="form-control" name="album" id="album" value="${trackRequested.album.title}"/></div>
-				</div>
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-1"><label for="genre">Genere:</label></div>
-					<div class="col-md-7"><input type="text" class="form-control" name="genre" id="genre" value="${trackRequested.genre.name}"/></div>
-				</div>
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-1"><label for="lyric">Titolo:</label></div>
-					<div class="col-md-7"><textarea class="form-control" name="lyric" id="lyric" rows="15">${trackRequested.lyric}</textarea></div>
-				</div>
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-8 text-center"><input type="submit" value="Conferma"/></div>
-				</div>
-			</form>			
-		</div>
-	
+			
 		<footer class="footer navbar-default">
 	        <div class="container">
 	            <div class="row">

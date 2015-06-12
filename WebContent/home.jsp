@@ -55,26 +55,19 @@
         	<div class="row">
         		<div class="col-md-5">
         			<h1>Ultimi testi inseriti</h1>
-        			<c:forEach var="lastTracks" items="${lastTracks}" varStatus="tracksCount" begin="0" end="2">
+        			<c:forEach var="lastTracks" items="${lastTracks}" varStatus="tracksCount" begin="0" end="3">
         				<p><a href="<c:url value="/controller/GetTrack?id=${lastTracks.id}" />">${lastTracks.author.name} - ${lastTracks.name}</a></p>
         			</c:forEach>
         		</div>
         		<div class="col-md-2"></div>
         		<div class="col-md-5">
         			<h1>I testi che preferite</h1>
-        			<p><a href="<c:url value="" />">Testo 1</a></p>
-        			<p><a href="<c:url value="" />">Testo 2</a></p>
-        			<p><a href="<c:url value="" />">Testo 3</a></p>
+        			<c:forEach var="likedTracks" items="${likedTracks}" varStatus="tracksCount" begin="0" end="3">
+        				<p><a href="<c:url value="/controller/GetTrack?id=${likedTracks.id}" />">${likedTracks.author.name} - ${likedTracks.name}</a></p>
+        			</c:forEach>
         		</div>
         	</div>
-        	<div class="row">
-        		<div class="col-md-12">
-        			<h1>I testi più visualizzati</h1>
-        			<p><a href="<c:url value="" />">Testo 1</a></p>
-        			<p><a href="<c:url value="" />">Testo 2</a></p>
-        			<p><a href="<c:url value="" />">Testo 3</a></p>
-        		</div>
-        	</div>
+        	
         </div>
 		
 		<footer class="footer navbar-default">

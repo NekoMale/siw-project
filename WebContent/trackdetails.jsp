@@ -10,6 +10,7 @@
         <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" >
         <link href="${pageContext.request.contextPath}/css/interface.css" rel="stylesheet" >
+        <link href="${pageContext.request.contextPath}/css/trackdetails.css" rel="stylesheet" >
 	</head>
 	<body>
 		<!-- navbar top - header -->
@@ -51,36 +52,30 @@
 	            </div>
 	    </header>
 	    
-	    <div class="container personal-adaptor">
+	    <div class="container personal-adaptor song-body">
 	    	<div class="row">
 	    		<div class="col-md-12 text-center">
 					<h1>${trackRequested.author.name} - ${trackRequested.name}</h1>
 					<h4>Album: ${trackRequested.album.title} - Genere: ${trackRequested.genre.name}</h4>
 	    		</div>
 	    	</div>
-	    	<div class="row">
+	    	<div class="row lyric-row">
 	    		<div class="col-md-2"></div>
 	    		<div class="col-md-8">
 	    			${trackRequested.lyric}
 	    		</div>
 	    	</div>
-	    	<div class="row">
-	    		<div class="col-md-1"></div>
-	    		<div class="col-md-2">
-	    			<c:choose>
-	    				<c:when test="${trackRequested.favs==1}">
-							Piace a 1 persona
-						</c:when>
-						<c:otherwise>
-							Piace a ${trackRequested.favs} persone
-						</c:otherwise>
-					</c:choose>		
-	    		<c:if test="${user.username!=null}">
-	    			<form <c:choose><c:when test="${fav==0}">action="<c:url value="/controller/Like"/>"</c:when>
-	    						  <c:otherwise>action="<c:url value="/controller/Dislike"/>"</c:otherwise></c:choose> method="post">
+	    	<div class="row like-row">
+	    		<div class="col-md-2"></div>
+	    		<div class="col-md-7">
+	    			<p><c:choose><c:when test="${trackRequested.favs==1}">Piace a 1 persona</c:when>
+	    			<c:otherwise>Piace a ${trackRequested.favs} persone</c:otherwise></c:choose></p>	
+	    			<c:if test="${user.username!=null}"><form <c:choose><c:when test="${fav==0}">action="<c:url value="/controller/Like"/>"</c:when>
+	    				<c:otherwise>action="<c:url value="/controller/Dislike"/>"</c:otherwise></c:choose> method="post">
 	    				<input type="hidden" name="idTrack" value="${trackRequested.id}">
 	    				<input type="submit" class="btn btn-primary" value="<c:choose><c:when test="${fav==0}">mi piace</c:when><c:otherwise>non mi piace più</c:otherwise></c:choose>">
 	    			</form></c:if>
+	    			<span>${err}</span>
 	    		</div>
 	    	</div>
 	    </div>

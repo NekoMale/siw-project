@@ -1,5 +1,6 @@
 package it.uniroma3.controller.action;
 
+import it.uniroma3.controller.helper.HelperAdminLogin;
 import it.uniroma3.controller.helper.HelperCreateTrack;
 import it.uniroma3.model.Album;
 import it.uniroma3.model.AlbumFacade;
@@ -11,11 +12,17 @@ import it.uniroma3.model.Track;
 import it.uniroma3.model.TrackFacade;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public class AdminEditTrack implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		HelperAdminLogin hal = new HelperAdminLogin();
+		if(!hal.isLogged(session))
+			return "/controller/HomeLoad";
+		
 		HelperCreateTrack helper = new HelperCreateTrack();
 		
 		if(helper.isValid(request)) {

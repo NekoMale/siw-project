@@ -16,7 +16,7 @@
 		<header class="navbar navbar-default">
 			<div class="container">
 		    	<div class="navbar-header">
-		         	<a href="<c:url value="/controller/HomeLoad"/>" class="navbar-brand logo">Lyrics Site</a>
+		         	<a href="<c:url value="/admin/index.jsp"/>" class="navbar-brand logo">Lyrics Site</a>
 		            <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
 		            	<span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
@@ -44,12 +44,9 @@
 			<div class="row options-row">
 				<div class="col-md-1"></div>
 				<div class="col-md-11">
-					<p><a href="">Crea Canzone</a></p>
-					<p><a href="">Crea Utente</a></p>
-					<p><a href="">Ricerca Rapida Canzone</a></p>
-					<p><a href="">Ricerca Avanzata Canzone</a></p>
-					<p><a href="">Ricerca Rapida Utente</a></p>
-					<p><a href="">Ricerca Avanzata Utente</a></p>
+					<p><a href="<c:url value="/admin/createtrack.jsp" />">Crea Canzone</a></p>
+					<p><a href="<c:url value="/admin/searchtrack.jsp" />">Ricerca Canzone</a></p>
+					<p><a href="<c:url value="/admin/searchuser.jsp" />">Ricerca Utente</a></p>
 				</div>
 			</div>
 		</div>

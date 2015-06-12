@@ -1,5 +1,6 @@
 package it.uniroma3.controller.action;
 
+import it.uniroma3.controller.helper.HelperDislike;
 import it.uniroma3.model.Favourites;
 import it.uniroma3.model.FavouritesFacade;
 import it.uniroma3.model.Track;
@@ -13,16 +14,24 @@ public class Dislike implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		HttpSession session = request.getSession();
+		Long idTrack = Long.parseLong(request.getParameter("idTrack"));
 		TrackFacade tf = new TrackFacade();
 		Track track = tf.findTrack(Long.parseLong(request.getParameter("idTrack")));
-		Users user = (Users)(session.getAttribute("user"));
-		FavouritesFacade ff = new FavouritesFacade();
-		Favourites fav = ff.deleteFav(track,user);
-		if(fav==null)
+		
+		HelperDislike helper = new HelperDislike();
+		if(helper.isValid(request)) {
+			HttpSession session = request.getSession();
+			Users user = (Users)(session.getAttribute("user"));
+			FavouritesFacade ff = new FavouritesFacade();
+			Favourites fav = ff.deleteFav(track,user);
+			if(fav==null)
+				request.setAttribute("fav", "0");
+			else
+				request.setAttribute("fav", fav.getId());
+		}
+		else 
 			request.setAttribute("fav", "0");
-		else
-			request.setAttribute("fav", fav.getId());
+		
 		request.setAttribute("trackRequested", track);
 		return "/trackdetails.jsp";
 	}

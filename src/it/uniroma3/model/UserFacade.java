@@ -78,6 +78,22 @@ public class UserFacade {
 		}
 		return true;
 	}
+
+	public boolean downgradeUser(Long id) {
+		Users user = em.find(Users.class, id);
+		try {
+			EntityTransaction tx = em.getTransaction();
+			tx.begin();
+			user.setisAdmin(false);
+			tx.commit();
+			em.close();
+			emf.close();
+		}
+		catch(Exception e) {
+			return false;
+		}
+		return true;
+	}
 	
 	public boolean upDataUser(Long id, String username, String email) {
 		Users user = em.find(Users.class, id);
@@ -110,5 +126,19 @@ public class UserFacade {
 			return false;
 		}
 		return true;
+	}
+
+	public List<Users> retrieveUsersByAdvancedSearch(String username, String email) {
+		List<Users> users;
+		try {
+			users = em.createQuery("SELECT u FROM Users u WHERE lower(u.username) LIKE :username AND lower(u.email) LIKE :email")
+						.setParameter("username", "%"+username.toLowerCase()+"%")
+						.setParameter("email", "%"+email.toLowerCase()+"%")
+						.getResultList();
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return users;
 	}
 }

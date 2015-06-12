@@ -1,0 +1,16 @@
+.title-row {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.user-body {
+	margin-bottom: 232px;
+}
+
+.user-body .row {
+	margin-top: 15px;
+}
+
+.user-body .last-row {
+	margin-bottom: -64px;
+}

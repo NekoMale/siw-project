@@ -1,17 +1,23 @@
 package it.uniroma3.controller.action;
 
-import java.util.List;
-
+import it.uniroma3.controller.helper.HelperAdminLogin;
 import it.uniroma3.controller.helper.HelperAdvancedSearch;
 import it.uniroma3.model.Track;
 import it.uniroma3.model.TrackFacade;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
-public class AdvancedSearch implements Action {
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+public class AdminTrackSearch implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		HelperAdminLogin hal = new HelperAdminLogin();
+		if(!hal.isLogged(session))
+			return "/controller/HomeLoad";
 		
 		HelperAdvancedSearch helper = new HelperAdvancedSearch();
 		
@@ -23,11 +29,11 @@ public class AdvancedSearch implements Action {
 			
 			TrackFacade tf = new TrackFacade();
 			List<Track> searchedTracks = tf.retrieveTracksByAdvancedSearch(lyric,nameTrack,albumTitle,nameAuthor);
-			request.setAttribute("searchedTracks", searchedTracks);		
+			request.setAttribute("tracks", searchedTracks);		
 			
-			return "/searchresult.jsp";
+			return "/admin/trackspanel.jsp";
 		}
-		return "/advancedsearch.jsp";
+		return "/admin/searchtrack.jsp";
 	}
 
 }

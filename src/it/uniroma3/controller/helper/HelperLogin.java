@@ -22,21 +22,20 @@ public class HelperLogin {
 			request.setAttribute("usernameErr","Campo obbligatorio");
 			errors = true;
 		}
+		else {
+			Users user = uf.findUser(username);
+			if(user==null || !user.getPassword().equals(password)) {
+				request.setAttribute("combinationErr", "Password o Username errata");
+				errors = true;
+			}
+		}
 		
 		if(password==null||password==""){
 			request.setAttribute("passwordErr","Campo obbligatorio");
 			errors = true;
 		}
 		
-		Users user = uf.findUser(username);
-		if(user==null) {
-			request.setAttribute("usernameErr", "Username errata");
-			errors = true;
-		}
-		else if(!user.getPassword().equals(password)) {
-			request.setAttribute("combinationErr", "Password o Username errata");
-			errors = true;
-		}
+		
 
 		request.setAttribute("username", username);
 		

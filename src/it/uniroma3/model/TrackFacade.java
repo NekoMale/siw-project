@@ -61,6 +61,17 @@ public class TrackFacade {
 		}
 		return tracks;
 	}
+
+	public List<Track> retrieveLikedTracks() {
+		List<Track> tracks;
+		try {
+			tracks = em.createQuery("SELECT t FROM Track t ORDER BY t.favs DESC").getResultList();
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return tracks;
+	}
 	
 	public boolean deleteTrack(Long id) {
 		Track track = em.find(Track.class, id);
@@ -101,7 +112,7 @@ public class TrackFacade {
 		return tracks;
 	}
 
-	public List<Track> retrieveTracksByAdvancedSearch(String lyric, String nameTrack, String albumTitle, String nameAuthor, HttpServletRequest request) {
+	public List<Track> retrieveTracksByAdvancedSearch(String lyric, String nameTrack, String albumTitle, String nameAuthor) {
 		List<Track> tracks;
 		try {
 			tracks = em.createQuery("SELECT t FROM Track t WHERE lower(t.name) LIKE :nameTrack AND lower(t.author.name) LIKE :nameAuthor AND lower(t.album.title) LIKE :albumTitle AND lower(t.lyric) LIKE :lyric")
@@ -112,7 +123,6 @@ public class TrackFacade {
 						.getResultList();
 		}
 		catch(Exception e) {
-			request.setAttribute("msg", e.toString());
 			return null;
 		}
 		return tracks;

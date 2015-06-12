@@ -41,7 +41,7 @@ public class AdminCreateTrack implements Action {
 			TrackFacade tf=new TrackFacade();
 			Track track = tf.createTrack(request.getParameter("name"),request.getParameter("lyric"), author, album, genre);
 			
-			return "/controller/AdminTrackList";	
+			return "/controller/AdminTrackList";
 		}
 		else {
 			return "/admin/createtrack.jsp";

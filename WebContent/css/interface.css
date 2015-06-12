@@ -20,7 +20,7 @@
     list-style: none;
 }
 
-@media (min-height: 785px) {
+@media (min-height: 654px) {
 	.personal-adaptor {
 		margin-bottom: 150px;
 	}
@@ -32,12 +32,5 @@
 	
 	.footer ul {
 		margin: auto;
-	}
-}
-
-@media(max-height: 784px) {
-	.empty-body {
-		/*height: 381px;*/
-		height: 421px;
 	}
 }

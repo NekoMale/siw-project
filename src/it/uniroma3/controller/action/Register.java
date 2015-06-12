@@ -18,7 +18,7 @@ public class Register implements Action {
 			
 			UserFacade uf = new UserFacade();
 			Users user = uf.register(username, email, password);
-			request.setAttribute("user", user);
+			request.setAttribute("userReg", user);
 			
 			return "/regconf.jsp";
 		}else{

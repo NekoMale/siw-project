@@ -7,7 +7,7 @@ import it.uniroma3.model.Users;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class AdminPromoteUser implements Action {
+public class AdminDowngradeUser implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
@@ -18,7 +18,7 @@ public class AdminPromoteUser implements Action {
 		
 		Long id = Long.parseLong(request.getParameter("id"));
 		UserFacade uf = new UserFacade();
-		if(uf.promoteUser(id)) request.setAttribute("msg", "Operazione Avvenuta con successo!");
+		if(uf.downgradeUser(id)) request.setAttribute("msg", "Operazione Avvenuta con successo!");
 		else request.setAttribute("msg", "Operazione non riuscita!");
 		return "/controller/AdminUserList";
 	}
