@@ -53,20 +53,13 @@
 		<footer class="footer navbar-default">
 	        <div class="container">
 	            <div class="row">
-	                <ul class="col-md-3">
-	                    <li><b>Mappa Sito:</b></li>
-	                    <li><a href="#"></a></li>
-	                    <li></li>
-	                    <li><a href="#"></a></li>
+	                <ul class="col-md-4">
 	                </ul>
 	                <ul class="col-md-3">
-	                    <li><b>Info</b></li>
-	                    <li><a href="#">Chi Siamo</a></li>
-	                    <li><a href="#">Perché siamo nati</a></li>
 	                </ul>
-	                <ul class="col-md-6">
+	                <ul class="col-md-5">
 	                    <li><b>Lyrics Site</b></li>
-	                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac pretium arcu, eget congue nisl. Sed rutrum enim sem, ac hendrerit felis posuere eu.</li>
+	                    <li>Lyrics Site è un sito che, sin dal 2015, raccoglie tutte le canzoni, album e autori esistenti. Anche i meno conosciuti.</li>
 	                    <li>Sito realizzato da: NekoMale & Vetrix</li>
 	                </ul>
 	            </div>

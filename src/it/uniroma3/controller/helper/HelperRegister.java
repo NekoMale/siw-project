@@ -1,5 +1,7 @@
 package it.uniroma3.controller.helper;
 
+import it.uniroma3.model.UserFacade;
+
 import javax.servlet.http.HttpServletRequest;
 
 public class HelperRegister {
@@ -15,19 +17,29 @@ public class HelperRegister {
 		String confEmail = request.getParameter("confemail");
 		String password = request.getParameter("password");
 		String confPassword = request.getParameter("confpassword");
+		UserFacade uf = new UserFacade();
 		boolean errors=false;
 		
 		if(username==null||username==""){
 			request.setAttribute("usernameErr","Campo obbligatorio");
 			errors = true;
 		}
+		else if(uf.getUser(username)!=null) {
+				request.setAttribute("usernameErr", "Username esistente!");
+				errors = true;
+		}
 				
 		if(email==null||email==""){
 			request.setAttribute("emailErr","Campo obbligatorio");
 			errors = true;
-		}else if((!(email.equals(confEmail)))){
+		}
+		else if((!(email.equals(confEmail)))){
 			request.setAttribute("emailErr","Le email non corrispondono");
 			request.setAttribute("confEmailErr","Le email non corrispondono");
+			errors = true;
+		}
+		else if(uf.getUserByEmail(email)!=null) {
+			request.setAttribute("emailErr", "Email esistente!");
 			errors = true;
 		}
 		
