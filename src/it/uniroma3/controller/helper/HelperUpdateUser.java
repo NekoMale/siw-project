@@ -29,7 +29,7 @@ public class HelperUpdateUser {
 			errors = true;
 		}
 
-		user = uf.findUser(username);
+		user = uf.getUser(username);
 		if(user!=null) {
 			if(user.getId().compareTo(id)!=0) {
 				request.setAttribute("usernameErr","Username già esistente!");

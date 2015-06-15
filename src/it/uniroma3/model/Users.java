@@ -23,7 +23,7 @@ public class Users {
 	@Column(nullable=false)
 	private boolean isAdmin;
 	
-	@OneToMany(cascade=CascadeType.REMOVE,mappedBy="track")
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="user")
 	private List<Favourites> favs;
 	
 	public Users() {
@@ -86,66 +86,9 @@ public class Users {
 		this.favs = favs;
 	}
 
-	/*@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + (isAdmin ? 1231 : 1237);
-		result = prime * result
-				+ ((password == null) ? 0 : password.hashCode());
-		result = prime * result
-				+ ((preferenze == null) ? 0 : preferenze.hashCode());
-		result = prime * result
-				+ ((username == null) ? 0 : username.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Utente other = (Utente) obj;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (isAdmin != other.isAdmin)
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (preferenze == null) {
-			if (other.preferenze != null)
-				return false;
-		} else if (!preferenze.equals(other.preferenze))
-			return false;
-		if (username == null) {
-			if (other.username != null)
-				return false;
-		} else if (!username.equals(other.username))
-			return false;
-		return true;
-	}
-
 	@Override
 	public String toString() {
 		return "Utente [id=" + id + ", username=" + username + ", password="
 				+ password + ", email=" + email + ", isAdmin=" + isAdmin + "]";
-	}*/
-	
-	
+	}	
 }

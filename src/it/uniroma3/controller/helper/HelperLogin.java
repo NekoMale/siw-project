@@ -23,7 +23,7 @@ public class HelperLogin {
 			errors = true;
 		}
 		else {
-			Users user = uf.findUser(username);
+			Users user = uf.getUser(username);
 			if(user==null || !user.getPassword().equals(password)) {
 				request.setAttribute("combinationErr", "Password o Username errata");
 				errors = true;

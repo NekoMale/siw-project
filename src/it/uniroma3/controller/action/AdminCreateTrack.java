@@ -26,7 +26,7 @@ public class AdminCreateTrack implements Action {
 			}
 			else {
 				AlbumFacade alf = new AlbumFacade();
-				album = alf.getAlbumByAuthor(albumTitle,author.getId());
+				album = alf.getAlbumByAuthor(albumTitle,author.getName());
 				if(album==null) {
 					album = new Album(albumTitle);
 					album.setAuthor(author);
@@ -44,6 +44,11 @@ public class AdminCreateTrack implements Action {
 			return "/controller/AdminTrackList";
 		}
 		else {
+			request.setAttribute("name", request.getParameter("name"));
+			request.setAttribute("author", request.getParameter("author"));
+			request.setAttribute("album", request.getParameter("album"));
+			request.setAttribute("lyric", request.getParameter("lyric"));
+			request.setAttribute("genre", request.getParameter("genre"));
 			return "/admin/createtrack.jsp";
 		}
 	}

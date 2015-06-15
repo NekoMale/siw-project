@@ -5,3 +5,9 @@
 .result-body .result {
 	margin-bottom: 10px;
 }
+
+@media(max-height:653px) {
+	.empty-body {
+		height: 421px;
+	}
+}

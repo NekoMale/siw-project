@@ -28,7 +28,18 @@ public class UserFacade {
 		return user;
 	}
 	
-	public Users findUser(String username) {
+	public Users findUser(Long id) {
+		Users user;
+		try {
+			user = em.find(Users.class, id);
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return user;
+	}
+	
+	public Users getUser(String username) {
 		Users user;
 		try {
 			user = (Users) em.createQuery("SELECT u FROM Users u WHERE u.username LIKE :username").setParameter("username", username)
@@ -140,5 +151,17 @@ public class UserFacade {
 			return null;
 		}
 		return users;
+	}
+
+	public Object getUserByEmail(String email) {
+		Users user;
+		try {
+			user = (Users) em.createQuery("SELECT u FROM Users u WHERE u.email LIKE :email").setParameter("email", email)
+					.getSingleResult();
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return user;
 	}
 }

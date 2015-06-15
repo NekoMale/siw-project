@@ -1,5 +1,7 @@
 package it.uniroma3.model;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -29,8 +31,7 @@ public class FavouritesFacade {
 		return fav;
 	}
 
-
-	public Favourites findFav(Users user, Track track) {
+	public Favourites getFav(Users user, Track track) {
 		Favourites fav;
 		try {
 			fav = (Favourites)
@@ -47,7 +48,7 @@ public class FavouritesFacade {
 
 	public Favourites deleteFav(Track track, Users user) {
 		track.setFavs((track.getFavs())-1);
-		Favourites fav = findFav(user,track);
+		Favourites fav = getFav(user,track);
 		try {
 			EntityTransaction tx = em.getTransaction();
 			tx.begin();
@@ -61,5 +62,18 @@ public class FavouritesFacade {
 			return fav;
 		}
 		return null;
+	}
+
+
+	public List<Favourites> getFavsOrdered(String username) {
+		List<Favourites> favs;
+		try {
+			favs = em.createQuery("SELECT f FROM Favourites f WHERE f.user.username LIKE :username ORDER BY f.id DESC")
+					.setParameter("username", username).getResultList();
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return favs;
 	}
 }

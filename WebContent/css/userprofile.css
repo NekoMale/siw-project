@@ -1,0 +1,17 @@
+.data-container {
+	margin-bottom: 228px;
+}
+
+.title-row {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.title-row span {
+	color: red;
+	font-weight: bold;
+}
+
+.result-row {
+	margin-top: 10px;
+}

@@ -28,6 +28,8 @@
 		        <div class="collapse navbar-collapse navHeaderCollapse">
 		        	<ul class="nav navbar-nav navbar-right">
 		            	<li><a href="<c:url value="/controller/AdminTrackList" />">Gestione Canzoni</a></li>
+		            	<li><a href="<c:url value="/controller/AdminAlbumList" />">Gestione Album</a></li>
+		            	<li><a href="<c:url value="/controller/AdminAuthorList" />">Gestione Autori</a></li>
 		                <li><a href="<c:url value="/controller/AdminUserList" />">Gestione Utenti</a></li>
 		                <li><p></p></li>
 		                <li><a href="<c:url value="/controller/GetUser?username=${user.username}"/>">Profilo ${user.username}</a></li>

@@ -1,0 +1,17 @@
+.edit-body {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.title-row {
+	margin-bottom: 20px;
+}
+
+.edit-body .row {
+	margin-top: 15px;
+}
+
+.edit-body span {
+	color: red;
+	font-weight: bold;
+}

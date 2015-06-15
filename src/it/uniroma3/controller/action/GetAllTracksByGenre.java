@@ -9,9 +9,9 @@ public class GetAllTracksByGenre implements Action{
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		HttpSession session = request.getSession();
 		TrackFacade tf = new TrackFacade();
-		request.setAttribute("Tracks", tf.retrieveTracksByGenre(request.getParameter("genreName")));
+		String genre = request.getParameter("genreName");
+		request.setAttribute("tracks", tf.retrieveTracksByGenreOrdered(genre));
 		return "/tracklist.jsp";
 	}
 

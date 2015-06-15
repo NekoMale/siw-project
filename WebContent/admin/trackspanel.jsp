@@ -28,6 +28,8 @@
 		        <div class="collapse navbar-collapse navHeaderCollapse">
 		        	<ul class="nav navbar-nav navbar-right">
 		            	<li><a href="<c:url value="/controller/AdminTrackList" />">Gestione Canzoni</a></li>
+		            	<li><a href="<c:url value="/controller/AdminAlbumList" />">Gestione Album</a></li>
+		            	<li><a href="<c:url value="/controller/AdminAuthorList" />">Gestione Autori</a></li>
 		                <li><a href="<c:url value="/controller/AdminUserList" />">Gestione Utenti</a></li>
 		                <li><p></p></li>
 		                <li><a href="<c:url value="/controller/GetUser?username=${user.username}"/>">Profilo ${user.username}</a></li>
@@ -42,6 +44,10 @@
 	    </div>
 	
 		<div class="container result-body">
+			<div class="row text-center msg-row">
+				${msg}
+				${errUpdate}
+			</div>
 			<div class="row text-center options-row">
 				<a href="<c:url value="/admin/createtrack.jsp" />" >Inserisci una nuova canzone</a> - <a href="<c:url value="/admin/searchtrack.jsp" />" >Cerca una canzone</a> 
 			</div>
@@ -72,8 +78,6 @@
 				</div>
 			</c:forEach>
 		</div>
-		${errUpdate}
-		${msg}		
 			
 		<footer class="footer navbar-default">
 	        <div class="container">

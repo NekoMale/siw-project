@@ -28,6 +28,8 @@
 		        <div class="collapse navbar-collapse navHeaderCollapse">
 		        	<ul class="nav navbar-nav navbar-right">
 		            	<li><a href="<c:url value="/controller/AdminTrackList" />">Gestione Canzoni</a></li>
+		            	<li><a href="<c:url value="/controller/AdminAlbumList" />">Gestione Album</a></li>
+		            	<li><a href="<c:url value="/controller/AdminAuthorList" />">Gestione Autori</a></li>
 		                <li><a href="<c:url value="/controller/AdminUserList" />">Gestione Utenti</a></li>
 		                <li><p></p></li>
 		                <li><a href="<c:url value="/controller/GetUser?username=${user.username}"/>">Profilo ${user.username}</a></li>
@@ -47,6 +49,9 @@
 		<div class="container result-body">
 			<div class="row text-center options-row">
 				<a href="<c:url value="/admin/searchuser.jsp" />" >Cerca un utente</a> 
+			</div>
+			<div class="row text-center msg-row">
+				${msg}
 			</div>
 			<div class="row">
 				<div class="col-md-2"></div>
@@ -80,9 +85,6 @@
 					</div>
 				</div>
 			</c:forEach>
-			<div class="row text-center">
-				${msg}
-			</div>
 		</div>	
 			
 		<footer class="footer navbar-default">

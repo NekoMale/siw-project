@@ -33,7 +33,7 @@
 	                    <li>
 		                <c:choose>
 		                	<c:when test="${user.username!=null}">
-		                  		<a href="<c:url value="/controller/GetUser?username=${user.username}"/>">Profilo ${user.username}</a>
+		                  		<a href="<c:url value="/controller/GetUser"/>">Profilo ${user.username}</a>
 		                   	</c:when>
 		                   	<c:otherwise>
 		                   		<a href="<c:url value="/login.jsp"/>">Accedi</a>

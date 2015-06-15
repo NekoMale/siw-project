@@ -26,6 +26,8 @@
 		        <div class="collapse navbar-collapse navHeaderCollapse">
 		        	<ul class="nav navbar-nav navbar-right">
 		            	<li><a href="<c:url value="/controller/AdminTrackList" />">Gestione Canzoni</a></li>
+		            	<li><a href="<c:url value="/controller/AdminAlbumList" />">Gestione Album</a></li>
+		            	<li><a href="<c:url value="/controller/AdminAuthorList" />">Gestione Autori</a></li>
 		                <li><a href="<c:url value="/controller/AdminUserList" />">Gestione Utenti</a></li>
 		                <li><p></p></li>
 		                <li><a href="<c:url value="/controller/GetUser?username=${user.username}"/>">Profilo ${user.username}</a></li>
@@ -45,27 +47,42 @@
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-1"><label for="name">Titolo:</label></div>
-					<div class="col-md-7"><input type="text" class="form-control" name="name" id="name" value="${track.name}"/></div>
+					<div class="col-md-7"><input type="text" class="form-control" name="name" id="name" value="${name}"/></div>
+				</div>
+				<div class="row error-row">
+					${nameErr}
 				</div>
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-1"><label for="author">Autore:</label></div>
-					<div class="col-md-7"><input type="text" class="form-control" name="author" id="author" value="${track.author.name}"/></div>
+					<div class="col-md-7"><input type="text" class="form-control" name="author" id="author" value="${author}"/></div>
+				</div>
+				<div class="row error-row">
+					${authorErr}
 				</div>
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-1"><label for="album">Album:</label></div>
-					<div class="col-md-7"><input type="text" class="form-control" name="album" id="album" value="${track.album.title}"/></div>
+					<div class="col-md-7"><input type="text" class="form-control" name="album" id="album" value="${album}"/></div>
+				</div>
+				<div class="row error-row">
+					${albumErr}
 				</div>
 				<div class="row">
 					<div class="col-md-2"></div>
 					<div class="col-md-1"><label for="genre">Genere:</label></div>
-					<div class="col-md-7"><input type="text" class="form-control" name="genre" id="genre" value="${track.genre.name}"/></div>
+					<div class="col-md-7"><input type="text" class="form-control" name="genre" id="genre" value="${genre}"/></div>
+				</div>
+				<div class="row error-row">
+					${genreErr}
 				</div>
 				<div class="row">
 					<div class="col-md-2"></div>
-					<div class="col-md-1"><label for="lyric">Titolo:</label></div>
-					<div class="col-md-7"><textarea class="form-control" name="lyric" id="lyric" rows="15">${track.lyric}</textarea></div>
+					<div class="col-md-1"><label for="lyric">Testo:</label></div>
+					<div class="col-md-7"><textarea class="form-control" name="lyric" id="lyric" rows="15">${lyric}</textarea></div>
+				</div>
+				<div class="row error-row">
+					${lyricErr}
 				</div>
 				<div class="row">
 					<div class="col-md-2"></div>

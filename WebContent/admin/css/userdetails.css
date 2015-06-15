@@ -14,3 +14,8 @@
 .user-body .last-row {
 	margin-bottom: -64px;
 }
+
+.user-body span {
+	color: red;
+	font-weight: bold;
+}

@@ -50,6 +50,17 @@ public class TrackFacade {
 		}
 		return tracks;
 	}
+	
+	public List<Track> retrieveAllTracksOrdered() {
+		List<Track> tracks;
+		try {
+			tracks = em.createQuery("SELECT t FROM Track t ORDER BY t.name ASC").getResultList();
+		}
+		catch(Exception e) {
+			return null;
+		}
+		return tracks;
+	}
 
 	public List<Track> retrieveLastTracks() {
 		List<Track> tracks;
@@ -128,10 +139,10 @@ public class TrackFacade {
 		return tracks;
 	}
 	
-	public List<Track> retrieveTracksByGenre(String genreName) {
+	public List<Track> retrieveTracksByGenreOrdered(String genreName) {
 		List<Track> tracks;
 		try {
-			tracks = em.createQuery("SELECT t FROM Track t WHERE t.genre.name LIKE :genre")
+			tracks = em.createQuery("SELECT t FROM Track t WHERE t.genre.name LIKE :genre ORDER BY t.genre.name ASC")
 						.setParameter("genre",""+genreName)
 						.getResultList();
 		}

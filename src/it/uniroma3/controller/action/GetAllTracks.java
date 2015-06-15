@@ -9,9 +9,8 @@ public class GetAllTracks implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		HttpSession session = request.getSession();
 		TrackFacade tf = new TrackFacade();
-		request.setAttribute("Tracks", tf.retrieveAllTracks());
+		request.setAttribute("tracks", tf.retrieveAllTracksOrdered());
 		return "/tracklist.jsp";
 	}
 }

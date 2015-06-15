@@ -22,7 +22,7 @@ public class HelperDislike {
 		
 		FavouritesFacade ff = new FavouritesFacade();
 		TrackFacade tf = new TrackFacade();
-		if(ff.findFav(user, tf.findTrack(idTrack))==null) {
+		if(ff.getFav(user, tf.findTrack(idTrack))==null) {
 			request.setAttribute("err", "Hai già tolto il mi piace a questa canzone!");
 			errors = true;
 		}

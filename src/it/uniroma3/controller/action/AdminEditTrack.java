@@ -41,7 +41,7 @@ public class AdminEditTrack implements Action {
 			}
 			else {
 				AlbumFacade alf = new AlbumFacade();
-				album = alf.getAlbumByAuthor(albumTitle,author.getId());
+				album = alf.getAlbumByAuthor(albumTitle,author.getName());
 				if(album==null) {
 					album = new Album(albumTitle);
 					album.setAuthor(author);

@@ -17,7 +17,7 @@ public class GetTrack implements Action {
 		request.setAttribute("trackRequested", track);
 		
 		FavouritesFacade ff = new FavouritesFacade();
-		Favourites fav = ff.findFav(user,track);
+		Favourites fav = ff.getFav(user,track);
 		if(fav==null)
 			request.setAttribute("fav", 0);
 		else

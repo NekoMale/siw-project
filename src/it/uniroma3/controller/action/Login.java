@@ -19,7 +19,7 @@ public class Login implements Action {
 			String password = request.getParameter("password");
 			
 			UserFacade uf = new UserFacade();
-			Users user = uf.findUser(username);
+			Users user = uf.getUser(username);
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
 			return "/index.jsp";

@@ -9,3 +9,8 @@
 .edit-body .row {
 	margin-top: 15px;
 }
+
+.error-row {
+	color: red;
+	font-weight: bold;
+}

@@ -9,9 +9,8 @@ public class GetAllGenres implements Action {
 
 	@Override
 	public String perform(HttpServletRequest request) {
-		HttpSession session = request.getSession();
 		GenreFacade gf = new GenreFacade();
-		request.setAttribute("Genres", gf.retrieveAllGenres());
+		request.setAttribute("genres", gf.retrieveAllGenresOrdered());
 		return "/genrelist.jsp";
 	}
 }

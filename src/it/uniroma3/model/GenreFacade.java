@@ -27,10 +27,10 @@ public class GenreFacade {
 		return genre;
 	}
 	
-	public List<Genre> retrieveAllGenres(){
+	public List<Genre> retrieveAllGenresOrdered(){
 		List<Genre> genres;
 		try {
-			genres = em.createQuery("SELECT g FROM Genre g")
+			genres = em.createQuery("SELECT g FROM Genre g ORDER BY g.name ASC")
 								.getResultList();
 		}catch(Exception e){
 			return null;

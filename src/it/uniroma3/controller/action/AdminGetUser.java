@@ -17,7 +17,7 @@ public class AdminGetUser implements Action {
 			return "/controller/HomeLoad";
 		
 		UserFacade uf = new UserFacade();
-		Users user = uf.findUser(request.getParameter("username"));
+		Users user = uf.getUser(request.getParameter("username"));
 		String man = request.getParameter("man");
 		request.setAttribute("userRequested", user);
 		request.setAttribute("man", man);

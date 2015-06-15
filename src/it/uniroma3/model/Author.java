@@ -14,9 +14,9 @@ public class Author {
 	private String name;
 	
 	@Column
-	private Date debut;
+	private int debut;
 	
-	@Column
+	@Column(length=1000)
 	private String info;
 	
 	@OneToMany(mappedBy="author")
@@ -50,11 +50,11 @@ public class Author {
 		this.name = name;
 	}
 
-	public Date getDebut() {
+	public int getDebut() {
 		return debut;
 	}
 
-	public void setDebut(Date debut) {
+	public void setDebut(int debut) {
 		this.debut = debut;
 	}
 
