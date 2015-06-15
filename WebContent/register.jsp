@@ -70,10 +70,10 @@
 		    		</div>
 		    		<div class="col-md-4">
 						<label for="password">Password:</label>
-						<input type="password" class="form-control" name="password" id="password" />
+						<input type="password" class="form-control" name="password" id="password" pattern=".{6,}" required title="Scrivi almeno 6 caratteri"/>
 						<p>${passwordErr}</p>
 						<label for="confpassword">Conferma Password:</label>
-						<input type="password" class="form-control" name="confpassword" id="confpassword" />
+						<input type="password" class="form-control" name="confpassword" id="confpassword" pattern=".{6,}" required title="Scrivi almeno 6 caratteri"/>
 						<p>${confPasswordErr}</p>
 		    		</div>
 		    	</div>

@@ -80,7 +80,7 @@
 					<div class="col-md-1">
 						<form action="<c:choose><c:when test="${users.isAdmin==false}"><c:url value="/controller/AdminPromoteUser" /></c:when><c:otherwise><c:url value="/controller/AdminDowngradeUser" /></c:otherwise></c:choose>" method="get">
 							<input type="hidden" name="id" value="${users.id}"/>
-							<input type="submit" value="<c:choose><c:when test="${users.isAdmin==false}">Promuovi</c:when><c:otherwise>Declassa</c:otherwise></c:choose>"/>
+							<input type="submit" value="<c:choose><c:when test="${users.isAdmin==false}">promuovi</c:when><c:otherwise>declassa</c:otherwise></c:choose>"/>
 						</form>
 					</div>
 				</div>

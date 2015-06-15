@@ -1,18 +1,25 @@
 1° Caso d'Uso - Consulta Home Page - Implementato
 Attore Primario: Utente qualsiasi
 Scenario Principale:
-- L'utente visiona un'anteprima dei 3 testi più recenti, piaciuti e visitati
+- L'utente visiona un'anteprima dei 3 testi più recenti e piaciuti
 - L'utente sceglie una delle canzoni presente in Home Page e ne richiede il testo
 - Il sistema mostra all'utente il testo
 
-2° Caso d'Uso - Consulta Lista Artisti
-Attore Primario: Utente quasliasi
+2° Caso d'Uso - Consulta Lista Artisti - Implementato
+Attore Primario: Utente qualsiasi
 Scenario Principale:
-- L'utente visiona l'elenco degli artisti italiani/esteri
+- L'utente visiona l'elenco degli artisti
 - L'utente sceglie un artista e ne richiede i dettagli
 - Il sistema mostra gli album con le canzoni relative all'artista presenti nel database
 
-3° Caso d'Uso - Ricerca Rapida - Implementato
+3° Caso d'Uso - Consulta Lista Generi - Implementato
+Attore Primario: Utente qualsiasi
+Scenario Principale:
+- L'utente visiona l'elenco dei generi
+- L'utente sceglie un genere e ne richiede i dettagli
+- Il sistema mostra l'elenco delle canzoni appartenenti al genere richiesto
+
+4° Caso d'Uso - Ricerca Rapida - Implementato
 Attore Primario: Utente qualsiasi
 Scenario Principale
 - L'utente scrive in una textbox ciò che ricorda della canzone
@@ -20,20 +27,13 @@ Scenario Principale
 - L'utente sceglie la canzone tra quelle proposte e ne richiede il testo
 - Il sistema mostra il testo richiesto
 
-4° Caso d'Uso - Ricerca Avanzata - Implementato
+5° Caso d'Uso - Ricerca Avanzata - Implementato
 Attore Primario: Utente registrato
 Scenario Principale
 - L'utente scrive in vari campi (artista, titolo, anno, album, parte di testo) ciò che ricorda del brano che vuole cercare
 - Il sistema, forse in tempo reale, mostra tutte le canzoni trovate con quei valori
 - L'utente sceglie la canzone tra quelle proposte e ne richiede il testo
 - Il sistema mostra il testo richiesto
-
-5° Caso d'Uso - Proposta Canzone 
-Attore Primario: Utente registrato
-Scenario Principale
-- L'utente inserisce i dati della canzone che vorrebbe fosse presente nel sito
-- Il sistema invia la richiesta via mail / database
-- Il sistema mostra all'utente una finestra con l'esito dell'operazione
 
 6° Caso d'Uso - Registrazione Utente - Implementato
 Attore Primario: Utente qualsiasi
@@ -49,43 +49,43 @@ Scenario Principale
 - Il sistema effettua i vari controlli
 - Il sistema restituisce l'esito dell'operazione di login
 
-8° Caso d'Uso - Modifica Dati
+8° Caso d'Uso - Visualizza Profilo Utente - Implementato
+Attore Primario: Utente qualsiasi
+Scenario Principale:
+- L'utente registrato visualizza i propri dati
+
+9° Caso d'Uso - Modifica Dati - Implementato
 Attore Primario: Utente registrato
 Scenario Principale
 - L'utente modifica i propri dati nell'apposito form e invia le modifiche
 - Il sistema effettua i vari controlli
 - Il sistema restituisce l'esito dell'operazione di modifica dati
 
-9° Caso d'Uso - Inserimento Canzone - Implementato
+10° Caso d'Uso - Inserimento Canzone - Implementato
 Attore Primario: Amministratore
 Scenario Principale
 - L'amministratore inserisce i vari dati della canzone nell'apposita form e l'invia
 - Il sistema effettua i vari controlli
 - Il sistema restituisce l'esito dell'operazione di inserimento
 
-10° Caso d'Uso - Modifica Canzone - Implementato
+11° Caso d'Uso - Modifica Canzone - Implementato
 Attore Primario: Amministratore
 Scenario Principale
 - L'amministratore modifica i vari dato della canzone nell'apposita form e l'invia
 - Il sistema effettua i vari controlli
 - Il sistema restituisce l'esito dell'operazione di modifica
 
-11° Caso d'Uso - Elimina Canzone - Implementato
+12° Caso d'Uso - Elimina Canzone - Implementato
 Attore Primario: Amministratore
 Scenario Principale
 - L'amministratore seleziona la canzone da rimuovere dal database
 - Il sistema effettua i vari controlli
 - Il sistema restituisce l'esito dell'operazione
 
-12 Caso d'Uso - Inserimento Utente
-- L'amministratore inserisce i vari dati dell'utente nell'apposita form e l'invia
-- Il sistema effettua i vari controlli
-- Il sistema restituisce l'esito dell'operazione di inserimento
-
 13° Caso d'Uso - Modifica Dati Utente - Implementato
 Attore Primario: Amministratore
 Scenario Principale
-- L'amministratore modifica i vari dato dell'utente nell'apposita form e l'invia
+- L'amministratore modifica i vari dati dell'utente nell'apposita form e l'invia
 - Il sistema effettua i vari controlli
 - Il sistema restituisce l'esito dell'operazione di modifica
 
@@ -103,9 +103,16 @@ Scenario Principale
 - L'amministratore selezione la canzone di cui vuole vedere i dati
 - Il sistema mostra i dati della canzone
 
-16° Caso d'Uso - Proposte Utenti (Facoltativo)
+16° Caso d'Uso - Modifica Album - Implementato
 Attore Primario: Amministratore
 Scenario Principale
-- L'amministratore seleziona una delle proposte dell'utente
-- Il sistema mostra la proposta dell'utente
-(Da vedere cosa aggiungere a questo caso d'uso, se si dovesse implementare)
+- L'amministratore modifica i dati di un album e li invia
+- Il sistema effettua i vari controlli
+- Il sistema restituisce l'esito dell'operazione
+
+17° Caso d'Uso - Modifica Dati Autore - Implementato
+Attore Primario: Amministratore
+Scenario Principale
+- L'amministratore modifica i dati di un autore e li invia
+- Il sistema effettua i vari controlli
+- Il sistema restituisce l'esito dell'operazione

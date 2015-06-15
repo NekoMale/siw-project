@@ -42,7 +42,7 @@
 				<h1>Inserisci una nuova canzone</h1>
 			</div>
 		</div>
-		<div class="container edit-body">
+		<div class="container edit-body personal-adaptor">
 			<form action="<c:url value="/controller/AdminCreateTrack" />" method="post">
 				<div class="row">
 					<div class="col-md-2"></div>

@@ -15,10 +15,7 @@ public class Album {
 	
 	@Column
 	private int year;
-	
-	@Column
-	private int numberTracks;
-	
+		
 	@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REFRESH})
 	private Author author;
 	
@@ -58,14 +55,6 @@ public class Album {
 		this.year = year;
 	}
 
-	public int getNumberTracks() {
-		return numberTracks;
-	}
-
-	public void setNumberTracks(int numberTracks) {
-		this.numberTracks = numberTracks;
-	}
-
 	public Author getAuthor() {
 		return author;
 	}
@@ -80,14 +69,6 @@ public class Album {
 
 	public void setBrani(List<Track> tracks) {
 		this.tracks = tracks;
-	}
-
-	@Override
-	public String toString() {
-		return "Album [id=" + id + ", nome=" + title + ", anno=" + year
-				+ ", numeroTracce=" + numberTracks + ", autore=" + author
-				+ ", brani=" + tracks + "]";
-	}
-	
+	}	
 	
 }
